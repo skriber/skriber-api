@@ -1,0 +1,465 @@
+{"message":"Socket >1a883fd3-7d6b-4c81-b395-2cfaaaafd526< established a connection","level":"info"}
+{"message":"Socket >1a883fd3-7d6b-4c81-b395-2cfaaaafd526< gracefully disconnected","level":"info"}
+{"message":"Socket >300b5b07-013b-4887-be2d-763f09ce5986< established a connection","level":"info"}
+{"message":"Received challenge from Socket >300b5b07-013b-4887-be2d-763f09ce5986<","level":"info"}
+{"message":"Socket >300b5b07-013b-4887-be2d-763f09ce5986< gracefully disconnected","level":"info"}
+{"message":"Socket >9c002aa0-2e5c-423e-8683-ca0b2b2a756a< established a connection","level":"info"}
+{"message":"Received challenge from Socket >9c002aa0-2e5c-423e-8683-ca0b2b2a756a<","level":"info"}
+{"message":"Cleared authorizations for Socket >1a883fd3-7d6b-4c81-b395-2cfaaaafd526<","level":"info"}
+{"message":"Cleared authorizations for Socket >300b5b07-013b-4887-be2d-763f09ce5986<","level":"info"}
+{"message":"Socket >9c002aa0-2e5c-423e-8683-ca0b2b2a756a< gracefully disconnected","level":"info"}
+{"message":"Socket >2d945820-8eaf-4175-8030-3de17ef7e427< established a connection","level":"info"}
+{"message":"Received challenge from Socket >2d945820-8eaf-4175-8030-3de17ef7e427<","level":"info"}
+{"message":"Cleared authorizations for Socket >9c002aa0-2e5c-423e-8683-ca0b2b2a756a<","level":"info"}
+{"message":"Challenge successfull for Socket >2d945820-8eaf-4175-8030-3de17ef7e427<","level":"info"}
+{"message":"Socket >2d945820-8eaf-4175-8030-3de17ef7e427< gracefully disconnected","level":"info"}
+{"message":"Socket >5ced9365-f248-4aa0-8d7d-bec6ef7523be< established a connection","level":"info"}
+{"message":"Received challenge from Socket >5ced9365-f248-4aa0-8d7d-bec6ef7523be<","level":"info"}
+{"message":"Cleared authorizations for Socket >2d945820-8eaf-4175-8030-3de17ef7e427<","level":"info"}
+{"message":"Challenge successfull for Socket >5ced9365-f248-4aa0-8d7d-bec6ef7523be<","level":"info"}
+{"message":"Created new Subscription for Socket >5ced9365-f248-4aa0-8d7d-bec6ef7523be< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >5ced9365-f248-4aa0-8d7d-bec6ef7523be< gracefully disconnected","level":"info"}
+{"message":"Socket >0867feb9-8134-4299-9c9a-fb03c1ede713< established a connection","level":"info"}
+{"message":"Received challenge from Socket >0867feb9-8134-4299-9c9a-fb03c1ede713<","level":"info"}
+{"message":"Cleared authorizations for Socket >5ced9365-f248-4aa0-8d7d-bec6ef7523be<","level":"info"}
+{"message":"Challenge successfull for Socket >0867feb9-8134-4299-9c9a-fb03c1ede713<","level":"info"}
+{"message":"Socket >0867feb9-8134-4299-9c9a-fb03c1ede713< gracefully disconnected","level":"info"}
+{"message":"Socket >d44ffec9-b695-4cf9-ae00-f8c341c7d051< established a connection","level":"info"}
+{"message":"Received challenge from Socket >d44ffec9-b695-4cf9-ae00-f8c341c7d051<","level":"info"}
+{"message":"Cleared authorizations for Socket >0867feb9-8134-4299-9c9a-fb03c1ede713<","level":"info"}
+{"message":"Challenge successfull for Socket >d44ffec9-b695-4cf9-ae00-f8c341c7d051<","level":"info"}
+{"message":"Created new Subscription for Socket >d44ffec9-b695-4cf9-ae00-f8c341c7d051< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >d44ffec9-b695-4cf9-ae00-f8c341c7d051< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >d44ffec9-b695-4cf9-ae00-f8c341c7d051<","level":"info"}
+{"message":"Socket >ba6939c3-d1ee-4029-8677-5dd4566345d0< established a connection","level":"info"}
+{"message":"Socket >ba6939c3-d1ee-4029-8677-5dd4566345d0< gracefully disconnected","level":"info"}
+{"message":"Socket >1d0b12b3-2b7e-41e8-a19e-faf1c8058a60< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >ba6939c3-d1ee-4029-8677-5dd4566345d0<","level":"info"}
+{"message":"Socket >a9cd0862-92b3-40c6-bf30-1e2e575385aa< established a connection","level":"info"}
+{"message":"Received challenge from Socket >a9cd0862-92b3-40c6-bf30-1e2e575385aa<","level":"info"}
+{"message":"Socket >a9cd0862-92b3-40c6-bf30-1e2e575385aa< gracefully disconnected","level":"info"}
+{"message":"Socket >effe0e4b-c066-4477-a67f-fea78a2ee9c7< established a connection","level":"info"}
+{"message":"Received challenge from Socket >effe0e4b-c066-4477-a67f-fea78a2ee9c7<","level":"info"}
+{"message":"Cleared authorizations for Socket >a9cd0862-92b3-40c6-bf30-1e2e575385aa<","level":"info"}
+{"message":"Socket >effe0e4b-c066-4477-a67f-fea78a2ee9c7< gracefully disconnected","level":"info"}
+{"message":"Socket >fa73fe3e-3253-4e75-b140-a76b45cc4f60< established a connection","level":"info"}
+{"message":"Received challenge from Socket >fa73fe3e-3253-4e75-b140-a76b45cc4f60<","level":"info"}
+{"message":"Cleared authorizations for Socket >effe0e4b-c066-4477-a67f-fea78a2ee9c7<","level":"info"}
+{"message":"Challenge successfull for Socket >fa73fe3e-3253-4e75-b140-a76b45cc4f60<","level":"info"}
+{"message":"Socket >4229fa7f-9fce-4bcf-869f-988d021df7f5< established a connection","level":"info"}
+{"message":"Received challenge from Socket >4229fa7f-9fce-4bcf-869f-988d021df7f5<","level":"info"}
+{"message":"Challenge successfull for Socket >4229fa7f-9fce-4bcf-869f-988d021df7f5<","level":"info"}
+{"message":"Socket >5f1bd1da-7a84-430f-9185-cae8789ab662< established a connection","level":"info"}
+{"message":"Received challenge from Socket >5f1bd1da-7a84-430f-9185-cae8789ab662<","level":"info"}
+{"message":"Challenge successfull for Socket >5f1bd1da-7a84-430f-9185-cae8789ab662<","level":"info"}
+{"message":"Socket >b97ac495-22a6-4726-ba35-3a3bc6a183cd< established a connection","level":"info"}
+{"message":"Received challenge from Socket >b97ac495-22a6-4726-ba35-3a3bc6a183cd<","level":"info"}
+{"message":"Challenge successfull for Socket >b97ac495-22a6-4726-ba35-3a3bc6a183cd<","level":"info"}
+{"message":"Socket >b97ac495-22a6-4726-ba35-3a3bc6a183cd< gracefully disconnected","level":"info"}
+{"message":"Socket >5f1bd1da-7a84-430f-9185-cae8789ab662< gracefully disconnected","level":"info"}
+{"message":"Socket >4229fa7f-9fce-4bcf-869f-988d021df7f5< gracefully disconnected","level":"info"}
+{"message":"Socket >fa73fe3e-3253-4e75-b140-a76b45cc4f60< gracefully disconnected","level":"info"}
+{"message":"Socket >1d0b12b3-2b7e-41e8-a19e-faf1c8058a60< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >b97ac495-22a6-4726-ba35-3a3bc6a183cd<","level":"info"}
+{"message":"Cleared authorizations for Socket >5f1bd1da-7a84-430f-9185-cae8789ab662<","level":"info"}
+{"message":"Cleared authorizations for Socket >4229fa7f-9fce-4bcf-869f-988d021df7f5<","level":"info"}
+{"message":"Cleared authorizations for Socket >fa73fe3e-3253-4e75-b140-a76b45cc4f60<","level":"info"}
+{"message":"Cleared authorizations for Socket >1d0b12b3-2b7e-41e8-a19e-faf1c8058a60<","level":"info"}
+{"message":"Starting server..","level":"info"}
+{"message":"Connecting to database..","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port 9001","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Socket >e5a3fd62-df1d-478c-ac53-69a498eed86b< established a connection","level":"info"}
+{"message":"Socket >e5a3fd62-df1d-478c-ac53-69a498eed86b< gracefully disconnected","level":"info"}
+{"message":"Socket >25fcb371-b901-47d1-aed5-f086afcf8b23< established a connection","level":"info"}
+{"message":"Socket >9dfab104-e29b-44c5-8ad6-3b527b915f5a< established a connection","level":"info"}
+{"message":"Received challenge from Socket >9dfab104-e29b-44c5-8ad6-3b527b915f5a<","level":"info"}
+{"message":"Cleared authorizations for Socket >e5a3fd62-df1d-478c-ac53-69a498eed86b<","level":"info"}
+{"message":"Socket >9dfab104-e29b-44c5-8ad6-3b527b915f5a< gracefully disconnected","level":"info"}
+{"message":"Socket >16e36157-9c4b-45d5-b6e3-e5ac22851583< established a connection","level":"info"}
+{"message":"Received challenge from Socket >16e36157-9c4b-45d5-b6e3-e5ac22851583<","level":"info"}
+{"message":"Cleared authorizations for Socket >9dfab104-e29b-44c5-8ad6-3b527b915f5a<","level":"info"}
+{"message":"Socket >16e36157-9c4b-45d5-b6e3-e5ac22851583< gracefully disconnected","level":"info"}
+{"message":"Socket >79ba8448-f696-462c-8cde-067fbabff971< established a connection","level":"info"}
+{"message":"Received challenge from Socket >79ba8448-f696-462c-8cde-067fbabff971<","level":"info"}
+{"message":"Cleared authorizations for Socket >16e36157-9c4b-45d5-b6e3-e5ac22851583<","level":"info"}
+{"message":"Challenge successfull for Socket >79ba8448-f696-462c-8cde-067fbabff971<","level":"info"}
+{"message":"Socket >79ba8448-f696-462c-8cde-067fbabff971< gracefully disconnected","level":"info"}
+{"message":"Socket >50a42374-50a5-4816-babc-e5fd06c9b0c4< established a connection","level":"info"}
+{"message":"Received challenge from Socket >50a42374-50a5-4816-babc-e5fd06c9b0c4<","level":"info"}
+{"message":"Cleared authorizations for Socket >79ba8448-f696-462c-8cde-067fbabff971<","level":"info"}
+{"message":"Challenge successfull for Socket >50a42374-50a5-4816-babc-e5fd06c9b0c4<","level":"info"}
+{"message":"Created new Subscription for Socket >50a42374-50a5-4816-babc-e5fd06c9b0c4< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >d5c3f4fd-ecfe-42d5-9b2c-c296c558eb2d< established a connection","level":"info"}
+{"message":"Received challenge from Socket >d5c3f4fd-ecfe-42d5-9b2c-c296c558eb2d<","level":"info"}
+{"message":"Challenge successfull for Socket >d5c3f4fd-ecfe-42d5-9b2c-c296c558eb2d<","level":"info"}
+{"message":"Socket >d5c3f4fd-ecfe-42d5-9b2c-c296c558eb2d< gracefully disconnected","level":"info"}
+{"message":"Socket >6df7c0b1-55aa-4e0d-bd29-03d0a0362708< established a connection","level":"info"}
+{"message":"Received challenge from Socket >6df7c0b1-55aa-4e0d-bd29-03d0a0362708<","level":"info"}
+{"message":"Cleared authorizations for Socket >d5c3f4fd-ecfe-42d5-9b2c-c296c558eb2d<","level":"info"}
+{"message":"Challenge successfull for Socket >6df7c0b1-55aa-4e0d-bd29-03d0a0362708<","level":"info"}
+{"message":"Created new Subscription for Socket >6df7c0b1-55aa-4e0d-bd29-03d0a0362708< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >6df7c0b1-55aa-4e0d-bd29-03d0a0362708< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >6df7c0b1-55aa-4e0d-bd29-03d0a0362708<","level":"info"}
+{"message":"Socket >25fcb371-b901-47d1-aed5-f086afcf8b23< gracefully disconnected","level":"info"}
+{"message":"Socket >50a42374-50a5-4816-babc-e5fd06c9b0c4< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >25fcb371-b901-47d1-aed5-f086afcf8b23<","level":"info"}
+{"message":"Cleared authorizations for Socket >50a42374-50a5-4816-babc-e5fd06c9b0c4<","level":"info"}
+{"message":"Socket >1633eb09-bfdc-46fc-9851-115c01a7f6c0< established a connection","level":"info"}
+{"message":"Socket >1633eb09-bfdc-46fc-9851-115c01a7f6c0< gracefully disconnected","level":"info"}
+{"message":"Socket >aa8237d1-0bc2-4231-ad34-69d5fb7027fa< established a connection","level":"info"}
+{"message":"Socket >faa9a68c-d2ec-4e81-816d-96263ba8dc76< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >1633eb09-bfdc-46fc-9851-115c01a7f6c0<","level":"info"}
+{"message":"Received challenge from Socket >faa9a68c-d2ec-4e81-816d-96263ba8dc76<","level":"info"}
+{"message":"Socket >faa9a68c-d2ec-4e81-816d-96263ba8dc76< gracefully disconnected","level":"info"}
+{"message":"Socket >6e601992-fd41-4231-ae95-95f64aea34f7< established a connection","level":"info"}
+{"message":"Received challenge from Socket >6e601992-fd41-4231-ae95-95f64aea34f7<","level":"info"}
+{"message":"Cleared authorizations for Socket >faa9a68c-d2ec-4e81-816d-96263ba8dc76<","level":"info"}
+{"message":"Socket >6e601992-fd41-4231-ae95-95f64aea34f7< gracefully disconnected","level":"info"}
+{"message":"Socket >d721aca2-d1b2-4ab9-9b51-cbd803dd2059< established a connection","level":"info"}
+{"message":"Received challenge from Socket >d721aca2-d1b2-4ab9-9b51-cbd803dd2059<","level":"info"}
+{"message":"Cleared authorizations for Socket >6e601992-fd41-4231-ae95-95f64aea34f7<","level":"info"}
+{"message":"Challenge successfull for Socket >d721aca2-d1b2-4ab9-9b51-cbd803dd2059<","level":"info"}
+{"message":"Socket >d721aca2-d1b2-4ab9-9b51-cbd803dd2059< gracefully disconnected","level":"info"}
+{"message":"Socket >af4e2e17-219f-463f-a573-6d43473c2e01< established a connection","level":"info"}
+{"message":"Received challenge from Socket >af4e2e17-219f-463f-a573-6d43473c2e01<","level":"info"}
+{"message":"Cleared authorizations for Socket >d721aca2-d1b2-4ab9-9b51-cbd803dd2059<","level":"info"}
+{"message":"Challenge successfull for Socket >af4e2e17-219f-463f-a573-6d43473c2e01<","level":"info"}
+{"message":"Created new Subscription for Socket >af4e2e17-219f-463f-a573-6d43473c2e01< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >af4e2e17-219f-463f-a573-6d43473c2e01< gracefully disconnected","level":"info"}
+{"message":"Socket >2aff7690-4112-4d98-933f-444cfbb4e2e9< established a connection","level":"info"}
+{"message":"Received challenge from Socket >2aff7690-4112-4d98-933f-444cfbb4e2e9<","level":"info"}
+{"message":"Cleared authorizations for Socket >af4e2e17-219f-463f-a573-6d43473c2e01<","level":"info"}
+{"message":"Challenge successfull for Socket >2aff7690-4112-4d98-933f-444cfbb4e2e9<","level":"info"}
+{"message":"Socket >2aff7690-4112-4d98-933f-444cfbb4e2e9< gracefully disconnected","level":"info"}
+{"message":"Socket >7dea2fb4-23b4-4a4e-9b29-2974a8a771cc< established a connection","level":"info"}
+{"message":"Received challenge from Socket >7dea2fb4-23b4-4a4e-9b29-2974a8a771cc<","level":"info"}
+{"message":"Cleared authorizations for Socket >2aff7690-4112-4d98-933f-444cfbb4e2e9<","level":"info"}
+{"message":"Challenge successfull for Socket >7dea2fb4-23b4-4a4e-9b29-2974a8a771cc<","level":"info"}
+{"message":"Created new Subscription for Socket >7dea2fb4-23b4-4a4e-9b29-2974a8a771cc< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >7dea2fb4-23b4-4a4e-9b29-2974a8a771cc< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >7dea2fb4-23b4-4a4e-9b29-2974a8a771cc<","level":"info"}
+{"message":"Socket >aa8237d1-0bc2-4231-ad34-69d5fb7027fa< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >aa8237d1-0bc2-4231-ad34-69d5fb7027fa<","level":"info"}
+{"message":"Starting server..","level":"info"}
+{"message":"Connecting to database..","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port 9001","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Starting server..","level":"info"}
+{"message":"Connecting to database..","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Failed to listen to port 9001","level":"error"}
+{"message":"Socket >5a9bc8a7-cea8-47b8-8ac0-8c4796bdd76a< established a connection","level":"info"}
+{"message":"Socket >5a9bc8a7-cea8-47b8-8ac0-8c4796bdd76a< gracefully disconnected","level":"info"}
+{"message":"Socket >61411fc0-6463-4732-b83b-c8725417eea8< established a connection","level":"info"}
+{"message":"Socket >46a60eb4-4809-419e-a678-a92bd4e6bbb9< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >5a9bc8a7-cea8-47b8-8ac0-8c4796bdd76a<","level":"info"}
+{"message":"Received challenge from Socket >46a60eb4-4809-419e-a678-a92bd4e6bbb9<","level":"info"}
+{"message":"Socket >46a60eb4-4809-419e-a678-a92bd4e6bbb9< gracefully disconnected","level":"info"}
+{"message":"Socket >f70288cb-4144-4fa7-9a37-53e0e7550b02< established a connection","level":"info"}
+{"message":"Received challenge from Socket >f70288cb-4144-4fa7-9a37-53e0e7550b02<","level":"info"}
+{"message":"Cleared authorizations for Socket >46a60eb4-4809-419e-a678-a92bd4e6bbb9<","level":"info"}
+{"message":"Socket >f70288cb-4144-4fa7-9a37-53e0e7550b02< gracefully disconnected","level":"info"}
+{"message":"Socket >dd3436d8-5058-43f4-b027-fe0a10db3a4d< established a connection","level":"info"}
+{"message":"Received challenge from Socket >dd3436d8-5058-43f4-b027-fe0a10db3a4d<","level":"info"}
+{"message":"Cleared authorizations for Socket >f70288cb-4144-4fa7-9a37-53e0e7550b02<","level":"info"}
+{"message":"Challenge successfull for Socket >dd3436d8-5058-43f4-b027-fe0a10db3a4d<","level":"info"}
+{"message":"Socket >dd3436d8-5058-43f4-b027-fe0a10db3a4d< gracefully disconnected","level":"info"}
+{"message":"Socket >572c94d6-7485-4047-ad47-cb419a64fdcf< established a connection","level":"info"}
+{"message":"Received challenge from Socket >572c94d6-7485-4047-ad47-cb419a64fdcf<","level":"info"}
+{"message":"Cleared authorizations for Socket >dd3436d8-5058-43f4-b027-fe0a10db3a4d<","level":"info"}
+{"message":"Challenge successfull for Socket >572c94d6-7485-4047-ad47-cb419a64fdcf<","level":"info"}
+{"message":"Created new Subscription for Socket >572c94d6-7485-4047-ad47-cb419a64fdcf< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >572c94d6-7485-4047-ad47-cb419a64fdcf< gracefully disconnected","level":"info"}
+{"message":"Socket >07ebb800-f123-4e99-b0fc-d1059a69f11b< established a connection","level":"info"}
+{"message":"Received challenge from Socket >07ebb800-f123-4e99-b0fc-d1059a69f11b<","level":"info"}
+{"message":"Cleared authorizations for Socket >572c94d6-7485-4047-ad47-cb419a64fdcf<","level":"info"}
+{"message":"Challenge successfull for Socket >07ebb800-f123-4e99-b0fc-d1059a69f11b<","level":"info"}
+{"message":"Socket >07ebb800-f123-4e99-b0fc-d1059a69f11b< gracefully disconnected","level":"info"}
+{"message":"Socket >540a59ef-1ef7-47b8-9e8d-d39c313056b1< established a connection","level":"info"}
+{"message":"Received challenge from Socket >540a59ef-1ef7-47b8-9e8d-d39c313056b1<","level":"info"}
+{"message":"Cleared authorizations for Socket >07ebb800-f123-4e99-b0fc-d1059a69f11b<","level":"info"}
+{"message":"Challenge successfull for Socket >540a59ef-1ef7-47b8-9e8d-d39c313056b1<","level":"info"}
+{"message":"Created new Subscription for Socket >540a59ef-1ef7-47b8-9e8d-d39c313056b1< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >540a59ef-1ef7-47b8-9e8d-d39c313056b1< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >540a59ef-1ef7-47b8-9e8d-d39c313056b1<","level":"info"}
+{"message":"Socket >61411fc0-6463-4732-b83b-c8725417eea8< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >61411fc0-6463-4732-b83b-c8725417eea8<","level":"info"}
+{"message":"Socket >ce5d7c0e-92ac-44ba-83ee-3db6d3196512< established a connection","level":"info"}
+{"message":"Socket >ce5d7c0e-92ac-44ba-83ee-3db6d3196512< gracefully disconnected","level":"info"}
+{"message":"Socket >3fb66401-4a53-4f2e-9c66-152313906a4f< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >ce5d7c0e-92ac-44ba-83ee-3db6d3196512<","level":"info"}
+{"message":"Socket >6154ff7b-03d2-4fe3-9533-a9709d25e638< established a connection","level":"info"}
+{"message":"Received challenge from Socket >6154ff7b-03d2-4fe3-9533-a9709d25e638<","level":"info"}
+{"message":"Socket >6154ff7b-03d2-4fe3-9533-a9709d25e638< gracefully disconnected","level":"info"}
+{"message":"Socket >dabc1d6a-e3f4-48d1-82b1-f3c17dbc96b8< established a connection","level":"info"}
+{"message":"Received challenge from Socket >dabc1d6a-e3f4-48d1-82b1-f3c17dbc96b8<","level":"info"}
+{"message":"Cleared authorizations for Socket >6154ff7b-03d2-4fe3-9533-a9709d25e638<","level":"info"}
+{"message":"Socket >dabc1d6a-e3f4-48d1-82b1-f3c17dbc96b8< gracefully disconnected","level":"info"}
+{"message":"Socket >53da98a7-a3a7-43e0-9837-a4d7b220f34e< established a connection","level":"info"}
+{"message":"Received challenge from Socket >53da98a7-a3a7-43e0-9837-a4d7b220f34e<","level":"info"}
+{"message":"Cleared authorizations for Socket >dabc1d6a-e3f4-48d1-82b1-f3c17dbc96b8<","level":"info"}
+{"message":"Challenge successfull for Socket >53da98a7-a3a7-43e0-9837-a4d7b220f34e<","level":"info"}
+{"message":"Socket >53da98a7-a3a7-43e0-9837-a4d7b220f34e< gracefully disconnected","level":"info"}
+{"message":"Socket >80297726-0baa-4f73-9bed-3de984c0dcbd< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >53da98a7-a3a7-43e0-9837-a4d7b220f34e<","level":"info"}
+{"message":"Received challenge from Socket >80297726-0baa-4f73-9bed-3de984c0dcbd<","level":"info"}
+{"message":"Challenge successfull for Socket >80297726-0baa-4f73-9bed-3de984c0dcbd<","level":"info"}
+{"message":"Created new Subscription for Socket >80297726-0baa-4f73-9bed-3de984c0dcbd< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >80297726-0baa-4f73-9bed-3de984c0dcbd< gracefully disconnected","level":"info"}
+{"message":"Socket >d2b18d77-2269-422c-86b2-dc90d96061ef< established a connection","level":"info"}
+{"message":"Received challenge from Socket >d2b18d77-2269-422c-86b2-dc90d96061ef<","level":"info"}
+{"message":"Cleared authorizations for Socket >80297726-0baa-4f73-9bed-3de984c0dcbd<","level":"info"}
+{"message":"Challenge successfull for Socket >d2b18d77-2269-422c-86b2-dc90d96061ef<","level":"info"}
+{"message":"Socket >d2b18d77-2269-422c-86b2-dc90d96061ef< gracefully disconnected","level":"info"}
+{"message":"Socket >18d917ee-3d04-409f-b518-42eac1b8e22d< established a connection","level":"info"}
+{"message":"Received challenge from Socket >18d917ee-3d04-409f-b518-42eac1b8e22d<","level":"info"}
+{"message":"Cleared authorizations for Socket >d2b18d77-2269-422c-86b2-dc90d96061ef<","level":"info"}
+{"message":"Challenge successfull for Socket >18d917ee-3d04-409f-b518-42eac1b8e22d<","level":"info"}
+{"message":"Created new Subscription for Socket >18d917ee-3d04-409f-b518-42eac1b8e22d< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >18d917ee-3d04-409f-b518-42eac1b8e22d< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >18d917ee-3d04-409f-b518-42eac1b8e22d<","level":"info"}
+{"message":"Socket >3fb66401-4a53-4f2e-9c66-152313906a4f< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >3fb66401-4a53-4f2e-9c66-152313906a4f<","level":"info"}
+{"message":"Starting server..","level":"info"}
+{"message":"Connecting to database..","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port 9001","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Socket >00debe8b-483d-477b-8a92-be8d35365c26< established a connection","level":"info"}
+{"message":"Socket >00debe8b-483d-477b-8a92-be8d35365c26< gracefully disconnected","level":"info"}
+{"message":"Socket >0a0f632c-6cc5-443d-a30a-5f4bb48b0aa7< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >00debe8b-483d-477b-8a92-be8d35365c26<","level":"info"}
+{"message":"Socket >ca953627-c551-4739-8ec0-ad712e2e7b73< established a connection","level":"info"}
+{"message":"Received challenge from Socket >ca953627-c551-4739-8ec0-ad712e2e7b73<","level":"info"}
+{"message":"Socket >ca953627-c551-4739-8ec0-ad712e2e7b73< gracefully disconnected","level":"info"}
+{"message":"Socket >5eaa7d33-6427-4622-ae2c-528224ed5d1a< established a connection","level":"info"}
+{"message":"Received challenge from Socket >5eaa7d33-6427-4622-ae2c-528224ed5d1a<","level":"info"}
+{"message":"Cleared authorizations for Socket >ca953627-c551-4739-8ec0-ad712e2e7b73<","level":"info"}
+{"message":"Socket >5eaa7d33-6427-4622-ae2c-528224ed5d1a< gracefully disconnected","level":"info"}
+{"message":"Socket >2dc10f6a-be53-4fa2-a377-2b54285b5095< established a connection","level":"info"}
+{"message":"Received challenge from Socket >2dc10f6a-be53-4fa2-a377-2b54285b5095<","level":"info"}
+{"message":"Cleared authorizations for Socket >5eaa7d33-6427-4622-ae2c-528224ed5d1a<","level":"info"}
+{"message":"Challenge successfull for Socket >2dc10f6a-be53-4fa2-a377-2b54285b5095<","level":"info"}
+{"message":"Socket >2dc10f6a-be53-4fa2-a377-2b54285b5095< gracefully disconnected","level":"info"}
+{"message":"Socket >0c5e5ebf-91af-4a49-bcfa-064df0b40fb2< established a connection","level":"info"}
+{"message":"Received challenge from Socket >0c5e5ebf-91af-4a49-bcfa-064df0b40fb2<","level":"info"}
+{"message":"Cleared authorizations for Socket >2dc10f6a-be53-4fa2-a377-2b54285b5095<","level":"info"}
+{"message":"Challenge successfull for Socket >0c5e5ebf-91af-4a49-bcfa-064df0b40fb2<","level":"info"}
+{"message":"Created new Subscription for Socket >0c5e5ebf-91af-4a49-bcfa-064df0b40fb2< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >0c5e5ebf-91af-4a49-bcfa-064df0b40fb2< gracefully disconnected","level":"info"}
+{"message":"Socket >001c4ce5-2736-407e-9460-0b3f3254d743< established a connection","level":"info"}
+{"message":"Received challenge from Socket >001c4ce5-2736-407e-9460-0b3f3254d743<","level":"info"}
+{"message":"Cleared authorizations for Socket >0c5e5ebf-91af-4a49-bcfa-064df0b40fb2<","level":"info"}
+{"message":"Challenge successfull for Socket >001c4ce5-2736-407e-9460-0b3f3254d743<","level":"info"}
+{"message":"Socket >001c4ce5-2736-407e-9460-0b3f3254d743< gracefully disconnected","level":"info"}
+{"message":"Socket >7b8bb05b-8c2c-427e-a208-be4966f8104b< established a connection","level":"info"}
+{"message":"Received challenge from Socket >7b8bb05b-8c2c-427e-a208-be4966f8104b<","level":"info"}
+{"message":"Cleared authorizations for Socket >001c4ce5-2736-407e-9460-0b3f3254d743<","level":"info"}
+{"message":"Challenge successfull for Socket >7b8bb05b-8c2c-427e-a208-be4966f8104b<","level":"info"}
+{"message":"Created new Subscription for Socket >7b8bb05b-8c2c-427e-a208-be4966f8104b< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >7b8bb05b-8c2c-427e-a208-be4966f8104b< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >7b8bb05b-8c2c-427e-a208-be4966f8104b<","level":"info"}
+{"message":"Socket >0a0f632c-6cc5-443d-a30a-5f4bb48b0aa7< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >0a0f632c-6cc5-443d-a30a-5f4bb48b0aa7<","level":"info"}
+{"message":"Starting server..","level":"info"}
+{"message":"Connecting to database..","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port 9001","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Socket >1b46b944-fc1e-43f4-82ef-55e1c5772da2< established a connection","level":"info"}
+{"message":"Socket >1b46b944-fc1e-43f4-82ef-55e1c5772da2< gracefully disconnected","level":"info"}
+{"message":"Socket >890306e2-74ed-4188-889b-c39223ab1c9d< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >1b46b944-fc1e-43f4-82ef-55e1c5772da2<","level":"info"}
+{"message":"Socket >890306e2-74ed-4188-889b-c39223ab1c9d< gracefully disconnected","level":"info"}
+{"message":"Socket >f8d7376c-cc75-483f-9269-b38d9107a905< established a connection","level":"info"}
+{"message":"Received challenge from Socket >f8d7376c-cc75-483f-9269-b38d9107a905<","level":"info"}
+{"message":"Cleared authorizations for Socket >890306e2-74ed-4188-889b-c39223ab1c9d<","level":"info"}
+{"message":"Socket >f8d7376c-cc75-483f-9269-b38d9107a905< gracefully disconnected","level":"info"}
+{"message":"Socket >c35578c4-1375-46d3-9821-e41e6751f2fd< established a connection","level":"info"}
+{"message":"Received challenge from Socket >c35578c4-1375-46d3-9821-e41e6751f2fd<","level":"info"}
+{"message":"Cleared authorizations for Socket >f8d7376c-cc75-483f-9269-b38d9107a905<","level":"info"}
+{"message":"Socket >c35578c4-1375-46d3-9821-e41e6751f2fd< gracefully disconnected","level":"info"}
+{"message":"Socket >11d41aa8-82bf-4d3d-bda7-75fd4a2511b9< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >c35578c4-1375-46d3-9821-e41e6751f2fd<","level":"info"}
+{"message":"Received challenge from Socket >11d41aa8-82bf-4d3d-bda7-75fd4a2511b9<","level":"info"}
+{"message":"Challenge successfull for Socket >11d41aa8-82bf-4d3d-bda7-75fd4a2511b9<","level":"info"}
+{"message":"Socket >11d41aa8-82bf-4d3d-bda7-75fd4a2511b9< gracefully disconnected","level":"info"}
+{"message":"Socket >665bca06-4920-4c33-9743-b79df9ff51d9< established a connection","level":"info"}
+{"message":"Received challenge from Socket >665bca06-4920-4c33-9743-b79df9ff51d9<","level":"info"}
+{"message":"Cleared authorizations for Socket >11d41aa8-82bf-4d3d-bda7-75fd4a2511b9<","level":"info"}
+{"message":"Challenge successfull for Socket >665bca06-4920-4c33-9743-b79df9ff51d9<","level":"info"}
+{"message":"Created new Subscription for Socket >665bca06-4920-4c33-9743-b79df9ff51d9< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >665bca06-4920-4c33-9743-b79df9ff51d9< gracefully disconnected","level":"info"}
+{"message":"Socket >6b31f927-0f34-4f38-a434-93ac90413c8c< established a connection","level":"info"}
+{"message":"Received challenge from Socket >6b31f927-0f34-4f38-a434-93ac90413c8c<","level":"info"}
+{"message":"Cleared authorizations for Socket >665bca06-4920-4c33-9743-b79df9ff51d9<","level":"info"}
+{"message":"Challenge successfull for Socket >6b31f927-0f34-4f38-a434-93ac90413c8c<","level":"info"}
+{"message":"Socket >6b31f927-0f34-4f38-a434-93ac90413c8c< gracefully disconnected","level":"info"}
+{"message":"Socket >173fd60f-72e2-452d-ac80-558272c0ac77< established a connection","level":"info"}
+{"message":"Received challenge from Socket >173fd60f-72e2-452d-ac80-558272c0ac77<","level":"info"}
+{"message":"Cleared authorizations for Socket >6b31f927-0f34-4f38-a434-93ac90413c8c<","level":"info"}
+{"message":"Challenge successfull for Socket >173fd60f-72e2-452d-ac80-558272c0ac77<","level":"info"}
+{"message":"Created new Subscription for Socket >173fd60f-72e2-452d-ac80-558272c0ac77< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >173fd60f-72e2-452d-ac80-558272c0ac77< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >173fd60f-72e2-452d-ac80-558272c0ac77<","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"name":"AlreadyHasActiveConnectionError","message":"Cannot create a new connection named \"default\", because connection with such name already exist and it now has an active connection session.","level":"error"}
+{"message":"Shutting down server..","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port 9001","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Socket >568d9071-bdd7-4401-b281-83045f8a7696< established a connection","level":"info"}
+{"message":"Socket >568d9071-bdd7-4401-b281-83045f8a7696< gracefully disconnected","level":"info"}
+{"message":"Socket >3a60969e-f994-493e-a31e-c4beeeca211b< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >568d9071-bdd7-4401-b281-83045f8a7696<","level":"info"}
+{"message":"Socket >3a60969e-f994-493e-a31e-c4beeeca211b< gracefully disconnected","level":"info"}
+{"message":"Socket >494f271a-b7a7-47de-a986-0d74489490ab< established a connection","level":"info"}
+{"message":"Received challenge from Socket >494f271a-b7a7-47de-a986-0d74489490ab<","level":"info"}
+{"message":"Cleared authorizations for Socket >3a60969e-f994-493e-a31e-c4beeeca211b<","level":"info"}
+{"message":"Socket >494f271a-b7a7-47de-a986-0d74489490ab< gracefully disconnected","level":"info"}
+{"message":"Socket >234c4489-68f7-49cf-b770-1f17b8d7476d< established a connection","level":"info"}
+{"message":"Received challenge from Socket >234c4489-68f7-49cf-b770-1f17b8d7476d<","level":"info"}
+{"message":"Cleared authorizations for Socket >494f271a-b7a7-47de-a986-0d74489490ab<","level":"info"}
+{"message":"Socket >234c4489-68f7-49cf-b770-1f17b8d7476d< gracefully disconnected","level":"info"}
+{"message":"Socket >8ad00b21-5974-40bc-bd95-6ae9206c680a< established a connection","level":"info"}
+{"message":"Received challenge from Socket >8ad00b21-5974-40bc-bd95-6ae9206c680a<","level":"info"}
+{"message":"Cleared authorizations for Socket >234c4489-68f7-49cf-b770-1f17b8d7476d<","level":"info"}
+{"message":"Challenge successfull for Socket >8ad00b21-5974-40bc-bd95-6ae9206c680a<","level":"info"}
+{"message":"Socket >8ad00b21-5974-40bc-bd95-6ae9206c680a< gracefully disconnected","level":"info"}
+{"message":"Socket >855cc68f-2208-4fd8-8781-364a20d347ad< established a connection","level":"info"}
+{"message":"Received challenge from Socket >855cc68f-2208-4fd8-8781-364a20d347ad<","level":"info"}
+{"message":"Cleared authorizations for Socket >8ad00b21-5974-40bc-bd95-6ae9206c680a<","level":"info"}
+{"message":"Challenge successfull for Socket >855cc68f-2208-4fd8-8781-364a20d347ad<","level":"info"}
+{"message":"Created new Subscription for Socket >855cc68f-2208-4fd8-8781-364a20d347ad< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >855cc68f-2208-4fd8-8781-364a20d347ad< gracefully disconnected","level":"info"}
+{"message":"Socket >5505387f-53df-49c0-8297-20fb8ef2ca1a< established a connection","level":"info"}
+{"message":"Received challenge from Socket >5505387f-53df-49c0-8297-20fb8ef2ca1a<","level":"info"}
+{"message":"Cleared authorizations for Socket >855cc68f-2208-4fd8-8781-364a20d347ad<","level":"info"}
+{"message":"Challenge successfull for Socket >5505387f-53df-49c0-8297-20fb8ef2ca1a<","level":"info"}
+{"message":"Socket >5505387f-53df-49c0-8297-20fb8ef2ca1a< gracefully disconnected","level":"info"}
+{"message":"Socket >798fc17d-5f31-4c43-9441-3877eef5e814< established a connection","level":"info"}
+{"message":"Received challenge from Socket >798fc17d-5f31-4c43-9441-3877eef5e814<","level":"info"}
+{"message":"Cleared authorizations for Socket >5505387f-53df-49c0-8297-20fb8ef2ca1a<","level":"info"}
+{"message":"Challenge successfull for Socket >798fc17d-5f31-4c43-9441-3877eef5e814<","level":"info"}
+{"message":"Created new Subscription for Socket >798fc17d-5f31-4c43-9441-3877eef5e814< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >798fc17d-5f31-4c43-9441-3877eef5e814< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >798fc17d-5f31-4c43-9441-3877eef5e814<","level":"info"}
+{"message":"Shutting down server..","level":"info"}
+{"message":"Server gracefully shut down","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port undefined","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port 61470","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Socket >818ebd98-f85d-4f31-a763-8d656df91c09< established a connection","level":"info"}
+{"message":"Socket >818ebd98-f85d-4f31-a763-8d656df91c09< gracefully disconnected","level":"info"}
+{"message":"Socket >8ebbf5ac-8a23-4201-9482-3ca06e8dd549< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >818ebd98-f85d-4f31-a763-8d656df91c09<","level":"info"}
+{"message":"Socket >8ebbf5ac-8a23-4201-9482-3ca06e8dd549< gracefully disconnected","level":"info"}
+{"message":"Socket >5b65f6cf-451f-46b3-a494-a79aff8bacef< established a connection","level":"info"}
+{"message":"Received challenge from Socket >5b65f6cf-451f-46b3-a494-a79aff8bacef<","level":"info"}
+{"message":"Cleared authorizations for Socket >8ebbf5ac-8a23-4201-9482-3ca06e8dd549<","level":"info"}
+{"message":"Socket >5b65f6cf-451f-46b3-a494-a79aff8bacef< gracefully disconnected","level":"info"}
+{"message":"Socket >73d45d73-65b9-4fe3-8932-c157ed7a2aed< established a connection","level":"info"}
+{"message":"Received challenge from Socket >73d45d73-65b9-4fe3-8932-c157ed7a2aed<","level":"info"}
+{"message":"Cleared authorizations for Socket >5b65f6cf-451f-46b3-a494-a79aff8bacef<","level":"info"}
+{"message":"Socket >73d45d73-65b9-4fe3-8932-c157ed7a2aed< gracefully disconnected","level":"info"}
+{"message":"Socket >419b031a-ac5e-4af0-a784-0f13f06ac421< established a connection","level":"info"}
+{"message":"Received challenge from Socket >419b031a-ac5e-4af0-a784-0f13f06ac421<","level":"info"}
+{"message":"Cleared authorizations for Socket >73d45d73-65b9-4fe3-8932-c157ed7a2aed<","level":"info"}
+{"message":"Challenge successfull for Socket >419b031a-ac5e-4af0-a784-0f13f06ac421<","level":"info"}
+{"message":"Socket >419b031a-ac5e-4af0-a784-0f13f06ac421< gracefully disconnected","level":"info"}
+{"message":"Socket >fc0efccd-1234-463a-9b07-55f980bf00f7< established a connection","level":"info"}
+{"message":"Received challenge from Socket >fc0efccd-1234-463a-9b07-55f980bf00f7<","level":"info"}
+{"message":"Cleared authorizations for Socket >419b031a-ac5e-4af0-a784-0f13f06ac421<","level":"info"}
+{"message":"Challenge successfull for Socket >fc0efccd-1234-463a-9b07-55f980bf00f7<","level":"info"}
+{"message":"Created new Subscription for Socket >fc0efccd-1234-463a-9b07-55f980bf00f7< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >fc0efccd-1234-463a-9b07-55f980bf00f7< gracefully disconnected","level":"info"}
+{"message":"Socket >402696fb-8b8a-4dba-9691-72a109261a29< established a connection","level":"info"}
+{"message":"Received challenge from Socket >402696fb-8b8a-4dba-9691-72a109261a29<","level":"info"}
+{"message":"Cleared authorizations for Socket >fc0efccd-1234-463a-9b07-55f980bf00f7<","level":"info"}
+{"message":"Challenge successfull for Socket >402696fb-8b8a-4dba-9691-72a109261a29<","level":"info"}
+{"message":"Socket >402696fb-8b8a-4dba-9691-72a109261a29< gracefully disconnected","level":"info"}
+{"message":"Socket >7cbde0bd-86f3-4135-9e15-333fa9d34df0< established a connection","level":"info"}
+{"message":"Received challenge from Socket >7cbde0bd-86f3-4135-9e15-333fa9d34df0<","level":"info"}
+{"message":"Cleared authorizations for Socket >402696fb-8b8a-4dba-9691-72a109261a29<","level":"info"}
+{"message":"Challenge successfull for Socket >7cbde0bd-86f3-4135-9e15-333fa9d34df0<","level":"info"}
+{"message":"Created new Subscription for Socket >7cbde0bd-86f3-4135-9e15-333fa9d34df0< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >7cbde0bd-86f3-4135-9e15-333fa9d34df0< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >7cbde0bd-86f3-4135-9e15-333fa9d34df0<","level":"info"}
+{"message":"Shutting down server..","level":"info"}
+{"message":"Server gracefully shut down","level":"info"}
+{"message":"Connection to database established","level":"info"}
+{"message":"Server started on port 61510","level":"info"}
+{"message":"Waiting for requests..","level":"info"}
+{"message":"Socket >d8cd53dc-05fe-4746-b0bc-38450a3501bd< established a connection","level":"info"}
+{"message":"Socket >d8cd53dc-05fe-4746-b0bc-38450a3501bd< gracefully disconnected","level":"info"}
+{"message":"Socket >8dd6df4e-f80c-4585-92a3-55d6dd00bfdb< established a connection","level":"info"}
+{"message":"Cleared authorizations for Socket >d8cd53dc-05fe-4746-b0bc-38450a3501bd<","level":"info"}
+{"message":"Socket >8dd6df4e-f80c-4585-92a3-55d6dd00bfdb< gracefully disconnected","level":"info"}
+{"message":"Socket >fc32b3f1-dc10-4846-84c6-7760ef6340ce< established a connection","level":"info"}
+{"message":"Received challenge from Socket >fc32b3f1-dc10-4846-84c6-7760ef6340ce<","level":"info"}
+{"message":"Cleared authorizations for Socket >8dd6df4e-f80c-4585-92a3-55d6dd00bfdb<","level":"info"}
+{"message":"Socket >fc32b3f1-dc10-4846-84c6-7760ef6340ce< gracefully disconnected","level":"info"}
+{"message":"Socket >58a94104-90e6-4829-9de6-e46846387319< established a connection","level":"info"}
+{"message":"Received challenge from Socket >58a94104-90e6-4829-9de6-e46846387319<","level":"info"}
+{"message":"Cleared authorizations for Socket >fc32b3f1-dc10-4846-84c6-7760ef6340ce<","level":"info"}
+{"message":"Socket >58a94104-90e6-4829-9de6-e46846387319< gracefully disconnected","level":"info"}
+{"message":"Socket >bde824e8-8f58-4c72-b4c8-64c828eec1a5< established a connection","level":"info"}
+{"message":"Received challenge from Socket >bde824e8-8f58-4c72-b4c8-64c828eec1a5<","level":"info"}
+{"message":"Cleared authorizations for Socket >58a94104-90e6-4829-9de6-e46846387319<","level":"info"}
+{"message":"Challenge successfull for Socket >bde824e8-8f58-4c72-b4c8-64c828eec1a5<","level":"info"}
+{"message":"Socket >bde824e8-8f58-4c72-b4c8-64c828eec1a5< gracefully disconnected","level":"info"}
+{"message":"Socket >9372a038-ffc9-478b-a827-5d5ffe311cf2< established a connection","level":"info"}
+{"message":"Received challenge from Socket >9372a038-ffc9-478b-a827-5d5ffe311cf2<","level":"info"}
+{"message":"Cleared authorizations for Socket >bde824e8-8f58-4c72-b4c8-64c828eec1a5<","level":"info"}
+{"message":"Challenge successfull for Socket >9372a038-ffc9-478b-a827-5d5ffe311cf2<","level":"info"}
+{"message":"Created new Subscription for Socket >9372a038-ffc9-478b-a827-5d5ffe311cf2< for channel \"test.channel\"","level":"info"}
+{"message":"Socket >9372a038-ffc9-478b-a827-5d5ffe311cf2< gracefully disconnected","level":"info"}
+{"message":"Socket >8a8b0e73-00b5-4a76-8904-7e4b69567b8a< established a connection","level":"info"}
+{"message":"Received challenge from Socket >8a8b0e73-00b5-4a76-8904-7e4b69567b8a<","level":"info"}
+{"message":"Cleared authorizations for Socket >9372a038-ffc9-478b-a827-5d5ffe311cf2<","level":"info"}
+{"message":"Challenge successfull for Socket >8a8b0e73-00b5-4a76-8904-7e4b69567b8a<","level":"info"}
+{"message":"Socket >8a8b0e73-00b5-4a76-8904-7e4b69567b8a< gracefully disconnected","level":"info"}
+{"message":"Socket >5e7c4093-d1db-4afc-9635-aac980b518f5< established a connection","level":"info"}
+{"message":"Received challenge from Socket >5e7c4093-d1db-4afc-9635-aac980b518f5<","level":"info"}
+{"message":"Cleared authorizations for Socket >8a8b0e73-00b5-4a76-8904-7e4b69567b8a<","level":"info"}
+{"message":"Challenge successfull for Socket >5e7c4093-d1db-4afc-9635-aac980b518f5<","level":"info"}
+{"message":"Created new Subscription for Socket >5e7c4093-d1db-4afc-9635-aac980b518f5< for channel \"test.channel.private\"","level":"info"}
+{"message":"Socket >5e7c4093-d1db-4afc-9635-aac980b518f5< gracefully disconnected","level":"info"}
+{"message":"Cleared authorizations for Socket >5e7c4093-d1db-4afc-9635-aac980b518f5<","level":"info"}
+{"message":"Shutting down server..","level":"info"}
+{"message":"Server gracefully shut down","level":"info"}

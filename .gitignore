@@ -10,3 +10,7 @@ temp/
 ormconfig.json
 
 .DS_Store
+
+logs/
+
+*.log

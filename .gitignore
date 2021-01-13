@@ -1,0 +1,16 @@
+.idea/
+.vscode/
+node_modules/
+build/
+tmp/
+temp/
+
+.env
+
+ormconfig.json
+
+.DS_Store
+
+logs/
+
+*.log

@@ -7,8 +7,6 @@ temp/
 
 .env
 
-ormconfig.json
-
 .DS_Store
 
 logs/

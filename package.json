@@ -4,6 +4,7 @@
    "description": "Skriber Javascript client",
    "devDependencies": {
       "@types/bcrypt": "^3.0.0",
+      "@types/dotenv": "^8.2.0",
       "@types/jest": "^26.0.20",
       "@types/node": "^8.0.29",
       "@types/uuid": "^8.3.0",
@@ -16,6 +17,7 @@
    },
    "dependencies": {
       "bcrypt": "^5.0.0",
+      "dotenv": "^8.2.0",
       "mysql": "^2.14.1",
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.10",

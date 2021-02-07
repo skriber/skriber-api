@@ -1,17 +1,16 @@
 version: "3"
 services:
   app:
-    container_name: app
+    container_name: sk-api
     restart: always
     build: .
-    environment:
-      - PORT=4000
+    env_file: .env
     ports:
-      - "4000:4000"
+      - "9000:9000"
     links:
-      - mongo
-  mongo:
-    container_name: mongo
-    image: mongo
+      - db
+  db:
+    container_name: sk-postgres
+    image: timescale/timescaledb:2.0.0-pg12
     ports:
-      - "27017:27017"
+      - "5432:5432"

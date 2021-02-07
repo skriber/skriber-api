@@ -1,4 +1,3 @@
-import { hashSync } from "bcrypt";
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import Application from "./Application";
 import { v4 as uuid4 } from "uuid";
@@ -19,16 +18,11 @@ export class ApiKey {
     publicKey: string;
 
     @Column({
-        name: "secret_key_hash",
+        name: "secret_key",
+        unique: true,
         nullable: false
     })
-    secretKeyHash: string;
-
-    @Column({
-        name: "key_prefix",
-        nullable: false
-    })
-    prefix: string;
+    secretKey: string;
 
     @Column({
         name: "deactivated",
@@ -43,10 +37,9 @@ export class ApiKey {
     })
     application: Application
 
-    regenerate(secretKey: string = undefined) {
-        this.prefix = uuid4().replace(/-/g, "").substr(0, 6);
-        this.publicKey = `sk_${this.prefix}:${ uuid4().replace(/-/g, "").substr(0, 16) }`;
-        this.secretKeyHash = hashSync(`sk_${this.prefix}:${secretKey ? secretKey : uuid4().replace(/-/g, "") }`, 12);
+    regenerate() {
+        this.publicKey = `sk_${ uuid4().replace(/-/g, "").substr(0, 16) }`;
+        this.secretKey = `sk_${ uuid4().replace(/-/g, "").substr(0, 16) }`;
     }
 
 }

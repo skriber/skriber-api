@@ -1,19 +1,48 @@
+export type Message = "subscribe" | "presence_join" | "presence_leave" | "presence_info" | "subscribed" | "unsubscribe" | "unsubscribed" | "event" | "challenge" | "welcome" | "error" | "ping" | "pong";
+
 export interface IMessage {
-    type: "subscribe" | "subscribed" | "unsubscribe" | "unsubscribed" | "event" | "challenge" | "welcome" | "error" | "ping" | "pong",
+    type: Message,
     payload?: object | string | null | undefined;
 };
 
 export interface SubscribeMessage extends IMessage {
     type: "subscribe",
     payload: {
-        channel: string
+        channel: string,
+        signature?: string,
+        data?: any
+    }
+};
+
+export interface PresenceJoinMessage extends IMessage {
+    type: "presence_join",
+    payload: {
+        channel: string,
+        data?: any
+    }
+};
+
+export interface PresenceLeaveMessage extends IMessage {
+    type: "presence_leave",
+    payload: {
+        channel: string,
+        data?: any
+    }
+};
+
+export interface PresenceInfoMessage extends IMessage {
+    type: "presence_info",
+    payload: {
+        channel: string,
+        data?: any
     }
 };
 
 export interface SubscribedMessage extends IMessage {
     type: "subscribed",
     payload: {
-        channel: string
+        channel: string,
+        data?: any
     }
 };
 
@@ -57,7 +86,6 @@ export interface EventMessage extends IMessage {
     type: "event",
     payload: {
         channel: string,
-        event: string,
         data: any
     }
 }

@@ -17,6 +17,13 @@ export default class User {
     uuid: string
 
     @Column({
+        name: 'username',
+        nullable: false,
+        unique: true
+    })
+    username: string;
+
+    @Column({
         name: 'first_name',
         nullable: false
     })
@@ -52,6 +59,7 @@ export default class User {
             email: this.email
         }
     }
+
 }
 
 export interface UserJson {

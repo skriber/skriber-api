@@ -14,7 +14,10 @@ export default class Database {
             this.connection = connection;
             cb(connection);
         })
-        .catch(error => logger.error(error));
+        .catch(error => {
+            console.log(error)
+            logger.error(error)
+        });
     }
 
     disconnect() {

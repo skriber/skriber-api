@@ -2,15 +2,17 @@ import "reflect-metadata";
 import {Connection} from "typeorm";
 import { App, HttpRequest, HttpResponse, SHARED_COMPRESSOR, TemplatedApp, us_listen_socket_close, us_socket_context_t, WebSocket } from "uWebSockets.js";
 import { v4 as uuid4 } from 'uuid';
-import { ChallengeMessage, ErrorMessage, IMessage, PingMessage, SubscribeMessage, UnsubscribeMessage } from "../messages";
-import handleSubscribe from "../handlers/handleSubscribe";
+import { ChallengeMessage, ErrorMessage, IMessage, PingMessage, SubscribeMessage, UnsubscribeMessage, WelcomeMessage } from "../messages";
+import handleSubscribe from "../handler/handleSubscribe";
 import publishEndpoint from "../endpoints/publishEndpoint";
 import publishAuthEndpoint from "../endpoints/publishAuthEndpoint";
-import ChannelAuth from "../entity/ChannelAuth";
 import logger from "../logger";
-import handleChallenge from "../handlers/handleChallenge";
-import handleUnsubscribe from "../handlers/handleUnsubscribe";
-import handlePing from "../handlers/handlePing";
+import handleChallenge from "../handler/handleChallenge";
+import handleUnsubscribe from "../handler/handleUnsubscribe";
+import handlePing from "../handler/handlePing";
+import Application from "../entity/Application";
+import User from "../entity/User";
+import InstanceInfo from "../entity/InstanceInfo";
 
 export default class SkriberServer {
 
@@ -22,8 +24,19 @@ export default class SkriberServer {
         this.port = port;
     }
 
-    start(connection: Connection, cb: () => void = undefined) {
+    async start(connection: Connection, cb: () => void = undefined) {
       logger.info('Connection to database established');
+
+      let instanceInfo: InstanceInfo = await connection.getRepository(InstanceInfo).findOne();
+      if(!instanceInfo) {
+        logger.info("First application start, generating instance information from environment");
+        instanceInfo = new InstanceInfo();
+        instanceInfo.baseurl = "localhost:9000";
+        instanceInfo.maxPayloadSize = 2000000;
+        await connection.getRepository(InstanceInfo).save(instanceInfo);
+        logger.info("Instance information updated");
+      }
+
       const app: TemplatedApp = App({
           //key_file_name: 'misc/key.pem',
           //cert_file_name: 'misc/cert.pem',
@@ -36,42 +49,67 @@ export default class SkriberServer {
         
           /* Handlers */
           upgrade: (res: HttpResponse, req: HttpRequest, context: us_socket_context_t) => {
-            res.onAborted(() => {
-              upgradeAborted.aborted = true;
-            });
+            const query: { [key: string]: any; }  = JSON.parse('{"' + req.getQuery().replace(/&/g, '","').replace(/=/g,'":"') + '"}', function(key, value) { return key===""?value:decodeURIComponent(value) });
 
-            const upgradeAborted: { 
-              aborted: boolean 
-            } = { aborted: false };
             const url: string = req.getUrl();
             const secWebSocketKey: string = req.getHeader('sec-websocket-key');
             const secWebSocketProtocol: string = req.getHeader('sec-websocket-protocol');
             const secWebSocketExtensions: string = req.getHeader('sec-websocket-extensions');
-        
-            if (upgradeAborted.aborted) {
-              logger.error("Connection attempt aborted");
+
+            if(!query.appId || !query.publicKey) {
+              logger.error(`Received invalid connection params ${req.getQuery()}`);
               return;
             }
-        
-            /* This immediately calls open handler, you must not use res after this call */
-            res.upgrade(
-              {
-                url: url
-              },
-              secWebSocketKey,
-              secWebSocketProtocol,
-              secWebSocketExtensions,
-              context
-            );
+
+            const upgradeAborted: { 
+              aborted: boolean 
+            } = { aborted: false };
+
+            res.onAborted(() => {
+              upgradeAborted.aborted = true;
+            });
+
+            connection.getRepository(Application).findOne({
+              uuid: query.appId
+            }).then((application: Application) => {
+              if(!application) {
+                logger.error(`No application found with id ${query.appId}`);
+                return;
+              }
+          
+              if (upgradeAborted.aborted) {
+                logger.error("Connection attempt aborted");
+                return;
+              }
+  
+              res.upgrade(
+                {
+                  url: url
+                },
+                secWebSocketKey,
+                secWebSocketProtocol,
+                secWebSocketExtensions,
+                context
+              );
+            })
+
+            
           },
           open: (ws: WebSocket) => {
-            
-            // Bind a random uuid to the socket
             ws.uuid = uuid4();
             ws.challenged = false;
   
             logger.info(`Socket >${ws.uuid}< established a connection`);
-        
+
+            const message: WelcomeMessage = {
+              type: "welcome",
+              payload: {
+                socket: ws.uuid
+              }
+            };
+
+            ws.send(JSON.stringify(message));
+
           },
           message: async (ws: WebSocket, message: ArrayBuffer, isBinary: boolean) => {
             /* Parse this message according to some application
@@ -107,22 +145,14 @@ export default class SkriberServer {
               ws.send(JSON.stringify(result));
           },
           drain: (ws) => {
-        
+            // TODO: Implement drain
           },
           close: (ws: WebSocket, code: number, message: ArrayBuffer) => {
             const uuid = ws.uuid;
-            connection.getRepository(ChannelAuth).delete({
-              socket: uuid
-            })
-            .then(() => logger.info(`Cleared authorizations for Socket >${uuid}<`))
-            .catch(error => logger.error(error));
-  
             logger.info(`Socket >${uuid}< gracefully disconnected`);
           }
         }).post('/publish', (res, req) => {
          publishEndpoint(res, req, app, connection);
-        }).post('/publish/auth', (res, req) => {
-          publishAuthEndpoint(res, req, app, connection);
         }).any('/*', (res, req) => {
           res.end('Nothing to see here!');
         }).listen(this.port, (token) => {

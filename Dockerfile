@@ -1,14 +1,20 @@
-FROM node:12
+FROM node:13
 
 WORKDIR /usr/src/app
 
 COPY package*.json .
-RUN npm install
+COPY yarn.lock .
+COPY tsconfig.json .
+COPY ormconfig.json .
 
-RUN npm install pm2 -g
+RUN yarn install
 
-RUN npm run tsc
+RUN yarn global add pm2
+
+COPY src ./src
+
+RUN yarn build
 
 ADD ./build .
 
-CMD ["pm2-runtime","server.js"]
+CMD ["pm2-runtime","build/index.js"]

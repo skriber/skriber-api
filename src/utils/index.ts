@@ -1,3 +1,4 @@
+import { hashSync } from "bcrypt";
 import { IMessage } from "../messages";
 
 export type Encoding = "utf-8" | "utf-16" | "utf-32";
@@ -31,4 +32,8 @@ export const decode = (data: ArrayBuffer, encoding: Encoding): IMessage => {
 
 export const generateKey = (): string => {
     return `sk_${Math.random().toString(36).substring(2, 8)}:${Math.random().toString(36).substring(4, 20)}${Math.random().toString(36).substring(8, 16)}`
+}
+
+export const hashPassword = (pw: string) => {
+    return hashSync(pw, 12);
 }

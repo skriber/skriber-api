@@ -38,6 +38,7 @@ if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
             format: format.combine(format.colorize(), alignColorsAndTime)
         })
     );
+    logger.level = 'debug'
 }
 
 export default logger;

@@ -70,7 +70,7 @@ export interface ErrorMessage extends IMessage {
 export interface WelcomeMessage extends IMessage {
     type: "welcome",
     payload: {
-        socket: string
+        socketId: string
     }
 };
 

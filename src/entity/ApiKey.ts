@@ -31,7 +31,7 @@ export class ApiKey {
     })
     deactivated?: Date
 
-    @ManyToOne(() => Application, application => application.keys)
+    @ManyToOne(() => Application, application => application.keys, {eager: true, onDelete: "CASCADE"})
     @JoinColumn({
         name: 'application_id'
     })

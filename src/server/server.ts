@@ -7,7 +7,6 @@ import handleSubscribe from "../handler/handleSubscribe";
 import publishEndpoint from "../endpoints/publishEndpoint";
 import publishAuthEndpoint from "../endpoints/publishAuthEndpoint";
 import logger from "../logger";
-import handleChallenge from "../handler/handleChallenge";
 import handleUnsubscribe from "../handler/handleUnsubscribe";
 import handlePing from "../handler/handlePing";
 import Application from "../entity/Application";
@@ -97,14 +96,13 @@ export default class SkriberServer {
           },
           open: (ws: WebSocket) => {
             ws.uuid = uuid4();
-            ws.challenged = false;
   
             logger.info(`Socket >${ws.uuid}< established a connection`);
 
             const message: WelcomeMessage = {
               type: "welcome",
               payload: {
-                socket: ws.uuid
+                socketId: ws.uuid
               }
             };
 
@@ -116,13 +114,9 @@ export default class SkriberServer {
              * protocol such as JSON [action, topic, message] */
         
               const json: IMessage = JSON.parse(Buffer.from(message).toString());
-  
               let result: IMessage;
   
               switch(json.type) {
-                  case "challenge":
-                      result = await handleChallenge(<ChallengeMessage> json, ws, connection);
-                      break;
                   case "subscribe":
                       result = await handleSubscribe(<SubscribeMessage> json, ws, connection);
                       break;
@@ -151,8 +145,11 @@ export default class SkriberServer {
             const uuid = ws.uuid;
             logger.info(`Socket >${uuid}< gracefully disconnected`);
           }
-        }).post('/publish', (res, req) => {
-         publishEndpoint(res, req, app, connection);
+        }).post('/publish', async (res, req) => {
+          res.onAborted(() => {
+            res.aborted = true;
+          });
+          await publishEndpoint(res, req, app, connection);
         }).any('/*', (res, req) => {
           res.end('Nothing to see here!');
         }).listen(this.port, (token) => {

@@ -1,4 +1,5 @@
 import { hashSync } from "bcrypt";
+import { HttpResponse } from "uWebSockets.js";
 import { IMessage } from "../messages";
 
 export type Encoding = "utf-8" | "utf-16" | "utf-32";
@@ -37,3 +38,39 @@ export const generateKey = (): string => {
 export const hashPassword = (pw: string) => {
     return hashSync(pw, 12);
 }
+
+export function readJson<T> (res: HttpResponse, cb, err) {
+    let buffer: Buffer;
+  
+    res.onData((ab: ArrayBuffer, isLast: boolean) => {
+      let chunk: Buffer = Buffer.from(ab);
+      if (isLast) {
+        let json;
+        if (buffer) {
+          try {
+            json = JSON.parse(Buffer.concat([buffer, chunk]).toString());
+          } catch (e) {
+            res.close();
+            return;
+          }
+          cb(<T> json);
+        } else {
+          try {
+            json = JSON.parse(chunk.toString());
+          } catch (e) {
+            res.close();
+            return;
+          }
+          cb(<T> json);
+        }
+      } else {
+        if (buffer) {
+          buffer = Buffer.concat([buffer, chunk]);
+        } else {
+          buffer = Buffer.concat([chunk]);
+        }
+      }
+    });
+  
+    res.onAborted(err);
+  }

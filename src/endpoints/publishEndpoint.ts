@@ -43,6 +43,7 @@ export async function publishEndpoint(res: HttpResponse, req: HttpRequest, app: 
         if (!json.channel.includes('/')) {
             res.writeStatus('401');
             res.end();
+            return;
         }
 
         const appId: string = json.channel.substring(0, json.channel.indexOf('/'));

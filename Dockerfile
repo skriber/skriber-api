@@ -33,4 +33,5 @@ COPY --from=APP_BUILD /app /opt/skriber
 
 RUN ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
 
-CMD ["pm2-runtime", "./build/index.js"]
+#CMD ["pm2-runtime", "./build/index.js"]
+CMD ["pm2-runtime", "start", "npm -- start"]

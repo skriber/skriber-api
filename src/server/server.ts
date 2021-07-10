@@ -185,7 +185,11 @@ export default class SkriberServer {
             });
             await publishEndpoint(res, req, app, connection);
         }).any('/*', (res, req) => {
-            res.end('Nothing to see here!');
+            res.writeStatus('200');
+            res.end(JSON.stringify({
+                version: process.env.npm_package_version,
+                status: 'healthy'
+            }))
         }).listen(this.port, (token) => {
             if (token) {
                 this.port = us_socket_local_port(token);

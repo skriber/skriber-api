@@ -1,12 +1,11 @@
-import {Entity, PrimaryGeneratedColumn, Column, Generated, ManyToOne, OneToMany, JoinColumn} from "typeorm";
-import { ApiKey } from "./ApiKey";
-import ChannelAuth from "./ChannelAuth";
-import User from "./User";
+import {Column, Entity, Generated, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {ApiKey} from "./ApiKey";
+import {User} from "./User";
 
 @Entity({
     name: 'applications'
 })
-export default class Application {
+export class Application {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -26,6 +25,27 @@ export default class Application {
     })
     appName: string;
 
+    @Column({
+        name: "force_tls",
+        nullable: false,
+        default: false
+    })
+    forceTls: boolean;
+
+    @Column({
+        name: "client_events_enabled",
+        nullable: false,
+        default: false
+    })
+    clientEventsEnabled: boolean;
+
+    @Column({
+        name: "authorized_connections_enabled",
+        nullable: false,
+        default: false
+    })
+    authorizedConnectionsEnabled: boolean;
+
     @OneToMany(() => ApiKey, key => key.application)
     keys: ApiKey[]
 
@@ -34,9 +54,6 @@ export default class Application {
         name: 'user_id'
     })
     user: User
-
-    @OneToMany(() => ChannelAuth, channelAuth => channelAuth.application)
-    authorizedChannels: ChannelAuth[]
 
     toJSON(): object {
         return {

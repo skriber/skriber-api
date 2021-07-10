@@ -1,17 +1,19 @@
 import { Connection } from "typeorm";
-import Application from "../src/entity/Application";
-import ChannelAuth from "../src/entity/ChannelAuth";
-import User from "../src/entity/User";
-import { v4 as uuid4 } from "uuid";
-import { ApiKey } from "../src/entity/ApiKey";
+import {v4 as uuid} from "uuid";
+import {Application, User, ApiKey} from "../src/entities";
+import {nanoid} from "nanoid";
+import {createHmac} from "crypto";
+import fetch, {Response} from "node-fetch";
 
 export const createApplication = async (connection: Connection): Promise<{application: Application, key: ApiKey}> => {
     let user: User = new User();
     user.email = "hello@ditsche.dev";
+    user.username = 'ditsche';
     user.firstName = 'Tobias';
     user.lastName = 'Dittmann';
     user.passwordHash = 'doesntmatter';
-    user = await connection.getRepository(User).save(user);
+    const userRepository = await connection.getRepository(User);
+    await userRepository.save(user);
 
     let application: Application = new Application();
     application.appName = 'Testing';
@@ -27,25 +29,38 @@ export const createApplication = async (connection: Connection): Promise<{applic
     return {application, key};
 };
 
+export async function publish(url: string, channel: string, payload: any, publicKey: string, secret: string): Promise<Response> {
+    const body = JSON.stringify({
+        channel,
+        payload
+    });
+
+    const nonce: string = generateNonce();
+    const signature: string = calculateSignature(body, secret, nonce);
+
+    return await fetch(url, {
+        method: 'POST',
+        headers: {
+            'authorization': publicKey,
+            'signature': nonce + ':' + signature
+        },
+        body
+    });
+}
+
+export function calculateSignature(body: string, secret: string, nonce: string) {
+    return createHmac('sha256', secret).update(`${nonce};${body}`).digest('hex');
+}
+
+export function preauthSocket(uuid: string, channel: string, secretKey: string) {
+    return createHmac('sha256', secretKey).update(`${uuid};${channel}`).digest('hex');
+}
+
+export function generateNonce(): string {
+    return nanoid(12);
+}
+
 export const cleanupDatabase = async (connection: Connection) => {
     await connection.dropDatabase();
     await connection.synchronize();
-}
-
-export const preauthorizeSocket = async (connection: Connection, appUuid: string, channel: string, socket: string): Promise<ChannelAuth> => {
-
-    const application: Application = await connection.getRepository(Application).findOne({
-        uuid: appUuid
-    });
-
-    if(!application) {
-        return null;
-    }
-
-    const channelAuth: ChannelAuth = new ChannelAuth();
-    channelAuth.channel = channel;
-    channelAuth.socket = socket;
-    channelAuth.application = application;
-
-    return await connection.getRepository(ChannelAuth).save(channelAuth);
 }

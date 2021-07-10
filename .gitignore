@@ -7,10 +7,10 @@ temp/
 
 .env
 
-ormconfig.json
-
 .DS_Store
 
 logs/
 
 *.log
+.test
+coverage/

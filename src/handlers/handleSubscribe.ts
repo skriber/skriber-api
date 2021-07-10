@@ -1,56 +1,74 @@
-import { Connection } from "typeorm";
-import { WebSocket } from "uWebSockets.js";
-import Application from "../entity/Application";
-import ChannelAuth from "../entity/ChannelAuth";
+import {createHmac} from "crypto";
+import {Connection} from "typeorm";
+import {WebSocket} from "uWebSockets.js";
+import {ApiKey} from "../entities";
 import logger from "../logger";
-import { ErrorMessage, IMessage, SubscribedMessage, SubscribeMessage } from "../messages";
+import {ErrorMessage, IMessage, SubscribeMessage, SubscriptionSuccessMessage} from "../messages";
 
-export default async function (message: SubscribeMessage, ws: WebSocket, connection: Connection): Promise<IMessage> {
+type Channel = 'public' | 'private';
+
+export async function handleSubscribe(message: SubscribeMessage, ws: WebSocket, connection: Connection): Promise<IMessage> {
     const channelName: string = message.payload.channel;
 
-    if(!channelName.includes(':')) {
+    const channelType: Channel = channelName.endsWith('/private') ? 'private' : 'public';
+
+    if (!channelName.includes('/')) {
         return {
             type: 'error',
             payload: `Malformed channel name "${channelName}"`
         };
     }
 
-    const splittedChannel: string[] = channelName.split(':');
+    const appId: string = channelName.substring(0, channelName.indexOf('/'));
 
-    const applicationUuid: string = splittedChannel[0];
-    const channel: string = splittedChannel[1];
+    const errorMessage: ErrorMessage = {
+        type: 'error',
+        payload: {
+            error: `Not authorized to subscribe to channel "${channelName}"`
+        }
+    };
 
-    const application: Application = await connection.getRepository(Application).findOne({
-        uuid: applicationUuid
-    });
-    
-    if(channel.endsWith('.private')) {
-        const channelAuth: ChannelAuth = await connection.getRepository(ChannelAuth).findOne({
-            relations: [
-                'application'
-            ],
-            where: {
-                channel: channel,
-                socket: ws.uuid
-            }
+    if(appId != ws.appId) {
+        return errorMessage;
+    }
+
+    if (channelType !== 'public') {
+        if (!message.payload.signature) {
+            return errorMessage;
+        }
+
+        if (!message.payload.signature.includes(':')) {
+            return errorMessage;
+        }
+
+        // signature: publicKey:hmac
+        // hmac: socket_id;channel
+        const splitSignature: string[] = message.payload.signature.split(':');
+
+        const apiKey: ApiKey = await connection.getRepository(ApiKey).findOne({
+            publicKey: splitSignature[0]
         });
 
-        if(!channelAuth) {
-            return <ErrorMessage> {
-                type: 'error',
-                payload: {
-                    error: `Not authorized to subscribe to channel "${channel}"`
-                }
-            }
+        if (!apiKey) {
+            return errorMessage;
+        }
+
+        let digest: string = undefined;
+        if (channelType === 'private') {
+            digest = createHmac('sha256', apiKey.secretKey).update(`${ws.uuid};${channelName}`).digest('hex');
+        }
+
+        if (digest !== splitSignature[1]) {
+            return errorMessage;
         }
     }
 
     ws.subscribe(channelName);
-    
-    logger.info(`Created new Subscription for Socket >${ws.uuid}< for channel "${channel}"`);
 
-    return <SubscribedMessage> {
-        type: "subscribed",
+    logger.info(`Created new Subscription for Socket >${ws.uuid}< for channel "${channelName}"`);
+
+    return <SubscriptionSuccessMessage>{
+        type: "subscription_success",
         payload: {
             channel: channelName
         }

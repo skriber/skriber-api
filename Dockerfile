@@ -1,14 +1,36 @@
-FROM node:12
+FROM node:14 AS DEPS
 
-WORKDIR /usr/src/app
+RUN mkdir /deps
+
+COPY package*.json /deps
+COPY yarn.lock /deps
+
+WORKDIR /deps
+
+RUN yarn install
+
+FROM node:14 AS APP_BUILD
+
+RUN mkdir -p /app
+WORKDIR /app
 
 COPY package*.json .
-RUN npm install
+COPY tsconfig.json .
+COPY ormconfig.json .
+COPY --from=DEPS /deps/node_modules ./node_modules
 
-RUN npm install pm2 -g
+COPY src ./src
 
-RUN npm run tsc
+RUN yarn build
 
-ADD ./build .
+FROM node:14-alpine AS APP_RUN
 
-CMD ["pm2-runtime","server.js"]
+WORKDIR /opt/skriber
+
+RUN yarn global add pm2
+
+COPY --from=APP_BUILD /app /opt/skriber
+
+RUN ln -s /lib/libc.musl-x86_64.so.1 /lib/ld-linux-x86-64.so.2
+
+CMD ["pm2-runtime", "./build/index.js"]

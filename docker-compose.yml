@@ -1,0 +1,20 @@
+version: "3"
+services:
+  app:
+    container_name: sk-api
+    restart: unless-stopped
+    build: .
+    env_file: .env
+    ports:
+      - "9000:9000"
+    links:
+      - skriber-db
+  skriber-db:
+    container_name: sk-postgres
+    image: timescale/timescaledb:2.0.0-pg12
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=${TYPEORM_DATABASE}
+      - POSTGRES_PASSWORD=${TYPEORM_PASSWORD}
+      - POSTGRES_USER=${TYPEORM_USERNAME}

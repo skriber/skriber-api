@@ -1,0 +1,72 @@
+image: alpine:latest
+
+stages:
+  - dockerize
+  - tag
+  - deploy
+
+variables:
+  SPRING_PROFILES_ACTIVE: test
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  DOCKER_REGISTRY: jkcr.io
+  DOCKER_REPOSITORY_URL: jkcr.io/skriber/skriber-server
+  DOCKER_IMAGE_TAGGED: $DOCKER_REPOSITORY_URL:$CI_COMMIT_SHORT_SHA
+  DOCKER_IMAGE_LATEST: $DOCKER_REPOSITORY_URL:latest
+  DOCKER_IMAGE_CURRENT_VERSION_TAG: $DOCKER_REPOSITORY_URL:$CI_COMMIT_REF_NAME
+
+cache:
+  paths:
+    - .m2/repository
+
+build_docker_image:
+  stage: dockerize
+  image: docker:latest
+  services:
+    - docker:dind
+  tags:
+    - dind
+    - docker
+  before_script:
+    - echo $REGISTRY_PASSWORD | docker login -u ci --password-stdin $DOCKER_REGISTRY
+  script:
+    - docker build -t $DOCKER_IMAGE_TAGGED .
+    - docker push $DOCKER_IMAGE_TAGGED
+  only:
+    - master
+    - tags
+    - develop
+
+build_latest_docker_image:
+  stage: tag
+  image: docker:latest
+  services:
+    - docker:dind
+  tags:
+    - dind
+    - docker
+  before_script:
+    - echo $REGISTRY_PASSWORD | docker login -u ci --password-stdin $DOCKER_REGISTRY
+  script:
+    - docker pull $DOCKER_IMAGE_TAGGED
+    - docker tag $DOCKER_IMAGE_TAGGED $DOCKER_IMAGE_LATEST
+    - docker push $DOCKER_IMAGE_LATEST
+  only:
+    - master
+    - develop
+
+build_release_docker_image:
+  stage: tag
+  image: docker:latest
+  services:
+    - docker:dind
+  tags:
+    - dind
+    - docker
+  before_script:
+    - echo $REGISTRY_PASSWORD | docker login -u ci --password-stdin $DOCKER_REGISTRY
+  script:
+    - docker pull $DOCKER_IMAGE_TAGGED
+    - docker tag $DOCKER_IMAGE_TAGGED $DOCKER_IMAGE_CURRENT_VERSION_TAG
+    - docker push $DOCKER_IMAGE_CURRENT_VERSION_TAG
+  only:
+    - tags

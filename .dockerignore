@@ -1,0 +1,12 @@
+test/
+jest.config.js
+docker-compose.yml
+.DS_Store
+*.md
+build/
+coverage/
+logs/
+node_modules/
+.env
+.gitlab-ci.yml
+nodemon.json

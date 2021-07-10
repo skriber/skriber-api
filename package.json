@@ -1,7 +1,7 @@
 {
-   "name": "skriber-client",
-   "version": "0.0.1",
-   "description": "Skriber Javascript client",
+   "name": "skriber-api",
+   "version": "0.1.1",
+   "description": "Skriber Websocket Server",
    "devDependencies": {
       "@types/bcrypt": "^3.0.0",
       "@types/dotenv": "^8.2.0",

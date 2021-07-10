@@ -1,11 +1,15 @@
-# Structure
+# Skriber
 
-## Channels
-Channel names are strings, for example: `users.103934.orders`. A channels name may contain **letters**, **numbers** and the following characters: `. _ -`.  This may be a channel, to notify a user with the id `103934` about order updates. Of course this channel should be private and only subscribeable to the actual user itself.
+> Attention: Currently skriber is not production ready. 
+> Use with caution!
 
-A private channel is suffixed with `.private`, so the channel name would be `users.103934.orders.private`. When a client socket tries to connect to a private channel, the api calls a webhook on the application server asking for channel authorization for a given socket. When the socket is authorized, it will be able to subscribe, otherwise it'll receive an error message.
+[Skriber](https://skriber.co/) is a simple yet performant websocket server. Manage the realtime
+needs of your apps with ease. Main features are:
 
-All channels are automatically prefixed with the applications uuid. It'll look like this: `applicationUUID:channelname()`.
+- 🔁 Pub/Sub - Model
+- 🔐 Private Channels
+- Multi-Tenancy
 
-### Private Channels
-Private channels are pre-authenticated, meaning a client needs to be authenticated to subscribe to the channel. 
+## Documentation
+
+The [documentation](https://docs.skriber.co/) is a WIP as the project is.

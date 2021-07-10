@@ -1,10 +1,10 @@
-import {Entity, PrimaryGeneratedColumn, Column, Generated, OneToMany} from "typeorm";
-import Application from "./Application";
+import {Column, Entity, Generated, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Application} from "./Application";
 
 @Entity({
     name: "users"
 })
-export default class User {
+export class User {
 
     @PrimaryGeneratedColumn()
     id: number;
@@ -14,7 +14,7 @@ export default class User {
         name: 'uuid',
         unique: true
     })
-    uuid: string
+    uuid: string;
 
     @Column({
         name: 'username',

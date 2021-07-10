@@ -1,4 +1,4 @@
-import { createLogger, format, transports } from 'winston';
+import {createLogger, format, transports} from 'winston';
 import "winston-daily-rotate-file";
 
 let alignColorsAndTime = format.combine(

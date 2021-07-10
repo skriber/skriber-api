@@ -1,24 +1,28 @@
-import { createHmac } from "crypto";
-import { Connection } from "typeorm";
-import { isDate } from "util";
-import { App, HttpRequest, HttpResponse, TemplatedApp } from "uWebSockets.js";
-import { ApiKey } from "../entity/ApiKey";
+import {createHmac} from "crypto";
+import {Connection} from "typeorm";
+import {HttpRequest, HttpResponse, TemplatedApp} from "uWebSockets.js";
+import {ApiKey} from "../entities";
 import logger from "../logger";
-import { readJson } from "../utils";
+import {readJson} from "../utils";
+import {EventMessage} from "../messages";
 
 type PublishDto = {
     channel: string;
-    payload: any
+    payload: any;
 };
 
-export default async function (res: HttpResponse, req: HttpRequest, app: TemplatedApp, connection: Connection) {
+/*
+ *
+ */
+export async function publishEndpoint(res: HttpResponse, req: HttpRequest, app: TemplatedApp, connection: Connection) {
 
     logger.info('POST /publish');
 
-    // Header Value: <publickey>
+    // Header Value: <public_key>
     const publicKey: string = req.getHeader("authorization");
 
-    // Header Value: <appId>:<nonce>:<signature>
+    // Header Value: <nonce>:<signature>
+    // signature: nonce;body + secret_key
     const signatureHeader: string = req.getHeader("signature");
 
     if(!signatureHeader) {
@@ -29,34 +33,52 @@ export default async function (res: HttpResponse, req: HttpRequest, app: Templat
 
     const signatureHeaderParts: string[] = signatureHeader.split(':');
 
-    if(signatureHeaderParts.length !== 3) {
+    if(signatureHeaderParts.length !== 2) {
         res.writeStatus('401');
         res.end();
         return;
     }
 
     readJson<PublishDto>(res, async (json: PublishDto) => {
-        const keys: ApiKey = await connection.getRepository(ApiKey).findOne({
-            publicKey
+        if (!json.channel.includes('/')) {
+            res.writeStatus('401');
+            res.end();
+        }
+
+        const appId: string = json.channel.substring(0, json.channel.indexOf('/'));
+
+        const apiKey: ApiKey = await connection.getRepository(ApiKey).findOne({
+            where: {
+                publicKey
+            },
+            relations: ['application']
         });
         
-        if(!keys || keys.application.uuid != signatureHeaderParts[0]) {
+        if(!apiKey || apiKey.application.uuid != appId) {
             res.writeStatus('401');
             res.end();
             return;
         }
 
-        const digest: string = createHmac('sha256', keys.secretKey).update(`${signatureHeaderParts[1]};${JSON.stringify(json)}`).digest('hex');
+        const digest: string = createHmac('sha256', apiKey.secretKey).update(`${signatureHeaderParts[0]};${JSON.stringify(json)}`).digest('hex');
 
-        logger.debug(digest);
-
-        if(digest !== signatureHeaderParts[2]) {
+        if(digest !== signatureHeaderParts[1]) {
             res.writeStatus('401');
             res.end();
             return;
         }
 
-        app.publish(signatureHeaderParts[0] + ':' + json.channel, JSON.stringify(json.payload));
+        logger.info(`Publishing to topic ${json.channel} : ${JSON.stringify(json.payload)}`);
+
+        const message: EventMessage = {
+            type: 'event',
+            payload: {
+                channel: json.channel,
+                data: json.payload
+            }
+        }
+
+        app.publish(json.channel, JSON.stringify(message));
 
         res.writeStatus("202");
         res.end();

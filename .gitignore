@@ -12,3 +12,5 @@ temp/
 logs/
 
 *.log
+.test
+coverage/

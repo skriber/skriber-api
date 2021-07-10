@@ -1,9 +1,10 @@
-import { config } from "dotenv";
-config();
-import { Connection } from "typeorm";
+import {config} from "dotenv";
+import {Connection} from "typeorm";
 import Database from "./db";
 import logger from "./logger";
 import SkriberServer from "./server";
+
+config();
 
 const port = parseInt(process.env.PORT) || 9001;
 

@@ -1,4 +1,4 @@
-import User, { UserJson } from '../../src/entity/User';
+import { User, UserJson } from '../../src/entities';
 
 describe('User', () => {
     test('json conversion', () => {

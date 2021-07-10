@@ -1,99 +1,67 @@
-export type Message = "subscribe" | "presence_join" | "presence_leave" | "presence_info" | "subscribed" | "unsubscribe" | "unsubscribed" | "event" | "challenge" | "welcome" | "error" | "ping" | "pong";
+export type Message = "connection_established" | "subscribe" | "subscription_success" | "unsubscribe" | "event" | "error" | "ping" | "pong";
 
 export interface IMessage {
-    type: Message,
+    type: Message;
     payload?: object | string | null | undefined;
-};
+}
+
+
+// ===============================================================
+// Client Messages
+// ===============================================================
 
 export interface SubscribeMessage extends IMessage {
-    type: "subscribe",
+    type: "subscribe";
     payload: {
-        channel: string,
-        signature?: string,
-        data?: any
+        channel: string;
+        signature?: string;
     }
-};
-
-export interface PresenceJoinMessage extends IMessage {
-    type: "presence_join",
-    payload: {
-        channel: string,
-        data?: any
-    }
-};
-
-export interface PresenceLeaveMessage extends IMessage {
-    type: "presence_leave",
-    payload: {
-        channel: string,
-        data?: any
-    }
-};
-
-export interface PresenceInfoMessage extends IMessage {
-    type: "presence_info",
-    payload: {
-        channel: string,
-        data?: any
-    }
-};
-
-export interface SubscribedMessage extends IMessage {
-    type: "subscribed",
-    payload: {
-        channel: string,
-        data?: any
-    }
-};
+}
 
 export interface UnsubscribeMessage extends IMessage {
-    type: "unsubscribe",
+    type: "unsubscribe";
     payload: {
-        channel: string
+        channel: string;
     }
-};
+}
 
-export interface UnsubscribedMessage extends IMessage {
-    type: "unsubscribed",
+// ===============================================================
+// Server Messages
+// ===============================================================
+
+export interface ConnectionEstablishedMessage extends IMessage {
+    type: "connection_established";
     payload: {
-        channel: string
+        socketId: string;
     }
-};
+}
+
+export interface SubscriptionSuccessMessage extends IMessage {
+    type: "subscription_success";
+    payload: {
+        channel: string;
+    }
+}
 
 export interface ErrorMessage extends IMessage {
-    type: "error",
+    type: "error";
     payload: {
-        error: string
+        error: string;
     }
-};
-
-export interface WelcomeMessage extends IMessage {
-    type: "welcome",
-    payload: {
-        socketId: string
-    }
-};
-
-export interface ChallengeMessage extends IMessage {
-    type: "challenge",
-    payload: {
-        application: string,
-        publicKey: string
-    }
-};
+}
 
 export interface EventMessage extends IMessage {
-    type: "event",
+    type: "event";
     payload: {
-        channel: string,
-        data: any
+        channel: string;
+        data: any;
     }
 }
 
 export interface PingMessage extends IMessage {
-    type: "ping"
-};
+    type: "ping";
+}
 
 export interface PongMessage extends IMessage {
-    type: "pong"
-};
+    type: "pong";
+}

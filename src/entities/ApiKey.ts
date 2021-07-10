@@ -1,6 +1,6 @@
 import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
-import Application from "./Application";
-import { v4 as uuid4 } from "uuid";
+import {Application} from "./Application";
+import {v4 as uuid4} from "uuid";
 
 @Entity({
     name: "api_keys"

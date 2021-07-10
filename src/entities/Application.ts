@@ -1,11 +1,11 @@
-import {Entity, PrimaryGeneratedColumn, Column, Generated, ManyToOne, OneToMany, JoinColumn} from "typeorm";
-import { ApiKey } from "./ApiKey";
-import User from "./User";
+import {Column, Entity, Generated, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {ApiKey} from "./ApiKey";
+import {User} from "./User";
 
 @Entity({
     name: 'applications'
 })
-export default class Application {
+export class Application {
 
     @PrimaryGeneratedColumn()
     id: number;

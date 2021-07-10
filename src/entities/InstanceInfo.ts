@@ -3,7 +3,7 @@ import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
 @Entity({
     name: "instance_info"
 })
-export default class InstanceInfo {
+export class InstanceInfo {
 
     @PrimaryGeneratedColumn()
     id: number;

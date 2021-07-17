@@ -3,9 +3,9 @@ config();
 import {Connection} from "typeorm";
 import Database from "./db";
 import logger from "./logger";
-import SkriberServer from "./server";
+import {SkriberServer} from "./server";
 
-const port = parseInt(process.env.PORT) || 9001;
+const port = parseInt(process.env.PORT) || 0;
 
 const SKRIBER_LOGO: string =  "\n ______  __  __   ______  __  ______  ______  ______    \n" +
                               "/\\  ___\\/\\ \\/ /  /\\  == \\/\\ \\/\\  == \\/\\  ___\\/\\  == \\   \n" +

@@ -11,7 +11,6 @@ import {
     us_socket_local_port,
     WebSocket
 } from "uWebSockets.js";
-import {v4 as uuid4} from 'uuid';
 import {
     ConnectionEstablishedMessage,
     ErrorMessage,
@@ -27,19 +26,30 @@ import {handlePing, handleSubscribe, handleUnsubscribe} from "../handlers";
 import isUUID = validator.isUUID;
 import {parseQueryString} from "../utils";
 import {Application, InstanceInfo} from "../entities";
+import {subscriber} from "../redis";
+import {nanoid} from "nanoid";
+import {
+    currentConnectionsMetric,
+    getMetrics, totalBytesReceivedMetric, totalBytesTransmittedMetric,
+    totalConnectionsMetric,
+    totalDisconnectsMetric, totalEventsEmittedMetric
+} from "../metrics";
 
-export default class SkriberServer {
+export class SkriberServer {
 
-    private port: number;
+    private _port: number;
 
     private token: any;
 
+    private clients: WebSocket[];
+
     constructor(port: number) {
-        this.port = port;
+        this._port = port;
+        this.clients = [];
     }
 
-    getPort(): number {
-        return this.port;
+    get port() {
+        return this._port;
     }
 
     async start(connection: Connection, cb: () => void = undefined) {
@@ -55,11 +65,7 @@ export default class SkriberServer {
             logger.info("Instance information updated");
         }
 
-        const app: TemplatedApp = App({
-            //key_file_name: 'misc/key.pem',
-            //cert_file_name: 'misc/cert.pem',
-            //passphrase: '1234'
-        }).ws('/*', {
+        const app: TemplatedApp = App().ws('/*', {
             compression: SHARED_COMPRESSOR,
             maxPayloadLength: 16 * 1024 * 1024,
             idleTimeout: 60,
@@ -132,21 +138,28 @@ export default class SkriberServer {
                 });
             },
             open: (ws: WebSocket) => {
-                ws.uuid = uuid4();
-                logger.info(`Socket >${ws.uuid}< established a connection`);
+                ws.id = nanoid();
+                logger.info(`Socket >${ws.id}< established a connection`);
 
                 const message: ConnectionEstablishedMessage = {
                     type: "connection_established",
                     payload: {
-                        socketId: ws.uuid
+                        socketId: ws.id
                     }
                 };
 
+                this.clients.push(ws);
+                currentConnectionsMetric.inc();
+                totalConnectionsMetric.inc();
+
+                totalBytesTransmittedMetric.inc(JSON.stringify(message).length * 2);
                 ws.send(JSON.stringify(message));
             },
             message: async (ws: WebSocket, message: ArrayBuffer) => {
                 const json: IMessage = JSON.parse(Buffer.from(message).toString());
                 let result: IMessage;
+
+                totalBytesReceivedMetric.inc(message.byteLength);
 
                 switch (json.type) {
                     case "subscribe":
@@ -168,14 +181,18 @@ export default class SkriberServer {
                         break;
                 }
 
+                // 2 bytes for each char
+                totalBytesTransmittedMetric.inc(JSON.stringify(result).length * 2);
                 ws.send(JSON.stringify(result));
             },
             drain: (ws) => {
-                logger.info(`Socket >${ws.uuid}< built up backpressure of ${ws.getBufferedAmount()}`);
+                logger.info(`Socket >${ws.id}< built up backpressure of ${ws.getBufferedAmount()}`);
             },
             close: (ws: WebSocket, code: number, message: ArrayBuffer) => {
-                const uuid = ws.uuid;
-                logger.info(`Socket >${uuid}< closed connection`);
+                this.clients = this.clients.filter(c => c.id !== ws.id);
+                currentConnectionsMetric.dec();
+                totalDisconnectsMetric.inc();
+                logger.info(`Socket >${ws.id}< closed connection`);
             }
         }).post('/publish', async (res, req) => {
             res.onAborted(() => {
@@ -190,6 +207,13 @@ export default class SkriberServer {
                 }));
                 return;
             }
+        }).get('/metrics', async (res, req) => {
+            res.onAborted(() => {
+                res.aborted = true;
+            });
+            const metrics = await getMetrics();
+            res.writeStatus('200');
+            res.end(metrics);
         }).any('/*', (res, req) => {
             res.writeStatus('200');
             res.end(JSON.stringify({
@@ -198,7 +222,7 @@ export default class SkriberServer {
             }))
         }).listen(this.port, (token) => {
             if (token) {
-                this.port = us_socket_local_port(token);
+                this._port = us_socket_local_port(token);
                 logger.info('Server started on port ' + this.port);
                 logger.info('Waiting for requests..');
                 this.token = token;
@@ -209,6 +233,16 @@ export default class SkriberServer {
                 logger.error('Failed to listen to port ' + this.port);
             }
         });
+
+        // Setup redis for distributed cluster mode
+        if(process.env.CLUSTERED_MODE === "true") {
+            subscriber.subscribe("publish_event", (data) => {
+                logger.info(`Publishing to topic ${data.channel} : ${JSON.stringify(data.data)}`);
+                totalBytesTransmittedMetric.inc(JSON.stringify(data.data).length * 2);
+                totalEventsEmittedMetric.inc();
+                app.publish(data.channel, data.data);
+            });
+        }
     }
 
     stop(cb: () => void = undefined) {

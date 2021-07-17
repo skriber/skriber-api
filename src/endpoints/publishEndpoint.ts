@@ -5,6 +5,8 @@ import {ApiKey} from "../entities";
 import logger from "../logger";
 import {readJson} from "../utils";
 import {EventMessage} from "../messages";
+import {publisher} from "../redis";
+import {totalBytesTransmittedMetric} from "../metrics";
 
 type PublishDto = {
     channel: string;
@@ -26,23 +28,32 @@ export async function publishEndpoint(res: HttpResponse, req: HttpRequest, app: 
     const signatureHeader: string = req.getHeader("signature");
 
     if(!signatureHeader) {
-        res.writeStatus('401');
-        res.end();
+        logger.info('400 /publish');
+        res.writeStatus('400');
+        res.end(JSON.stringify({
+            error: "Invalid signature provided"
+        }));
         return;
     }
 
     const signatureHeaderParts: string[] = signatureHeader.split(':');
 
     if(signatureHeaderParts.length !== 2) {
-        res.writeStatus('401');
-        res.end();
+        logger.info('400 /publish');
+        res.writeStatus('400');
+        res.end(JSON.stringify({
+            error: "Invalid signature provided"
+        }));
         return;
     }
 
     readJson<PublishDto>(res, async (json: PublishDto) => {
         if (!json.channel.includes('/')) {
-            res.writeStatus('401');
-            res.end();
+            logger.info('400 /publish');
+            res.writeStatus('400');
+            res.end(JSON.stringify({
+                error: "Invalid channel name"
+            }));
             return;
         }
 
@@ -56,20 +67,24 @@ export async function publishEndpoint(res: HttpResponse, req: HttpRequest, app: 
         });
         
         if(!apiKey || apiKey.application.uuid != appId) {
+            logger.info('401 /publish');
             res.writeStatus('401');
-            res.end();
+            res.end(JSON.stringify({
+                error: "Invalid application key"
+            }));
             return;
         }
 
         const digest: string = createHmac('sha256', apiKey.secretKey).update(`${signatureHeaderParts[0]};${JSON.stringify(json)}`).digest('hex');
 
         if(digest !== signatureHeaderParts[1]) {
+            logger.info('401 /publish');
             res.writeStatus('401');
-            res.end();
+            res.end(JSON.stringify({
+                error: "Signature not matching payload"
+            }));
             return;
         }
-
-        logger.info(`Publishing to topic ${json.channel} : ${JSON.stringify(json.payload)}`);
 
         const message: EventMessage = {
             type: 'event',
@@ -79,10 +94,21 @@ export async function publishEndpoint(res: HttpResponse, req: HttpRequest, app: 
             }
         }
 
-        app.publish(json.channel, JSON.stringify(message));
+        if(process.env.CLUSTERED_MODE === "true") {
+            publisher.publish("publish_event", {
+                channel: json.channel,
+                data: JSON.stringify(message)
+            });
+            totalBytesTransmittedMetric.inc(JSON.stringify(message).length * 2);
+        } else {
+            app.publish(json.channel, JSON.stringify(message));
+        }
 
+        logger.info('202 /publish');
         res.writeStatus("202");
-        res.end();
+        res.end(JSON.stringify({
+            message: "Message queued successfully"
+        }));
         return;
     }, console.error);
 }

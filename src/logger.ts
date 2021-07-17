@@ -6,7 +6,7 @@ let alignColorsAndTime = format.combine(
         all:true
     }),
     format.label({
-        label:'[LOGGER]'
+        label:'[SKRIBER]'
     }),
     format.timestamp({
         format:"YY-MM-DD HH:MM:SS"
@@ -17,27 +17,25 @@ let alignColorsAndTime = format.combine(
 );
 
 const logger = createLogger({
-    level: 'info',
+    level: process.env.LOG_LEVEL ?? 'info',
     format: format.json(),
     transports: [
         new transports.File({ filename: 'error.log', dirname: "./logs", level: 'error' }),
         new transports.DailyRotateFile({
-            filename: 'wss-%DATE%.log',
+            filename: 'skriber-%DATE%.log',
             dirname: process.env.LOG_DIR ?? "./logs",
             datePattern: "YYYY-MM-DD",
             zippedArchive: true,
             maxSize: '20m',
             maxFiles: process.env.LOG_RETENTION ?? '14d'
+        }),
+        new transports.Console({
+            format: format.combine(format.colorize(), alignColorsAndTime)
         })
     ],
 });
 
 if (process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test') {
-    logger.add(
-        new transports.Console({
-            format: format.combine(format.colorize(), alignColorsAndTime)
-        })
-    );
     logger.level = 'debug'
 }
 

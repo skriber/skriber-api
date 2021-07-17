@@ -23,10 +23,13 @@
       "ws": "^7.4.2"
    },
    "dependencies": {
+      "@types/redis": "^2.8.31",
       "bcrypt": "^5.0.0",
       "dotenv": "^8.2.0",
       "mysql": "^2.14.1",
       "pg": "^8.4.0",
+      "prom-client": "^13.1.0",
+      "redis": "^3.1.2",
       "reflect-metadata": "^0.1.10",
       "typeorm": "0.2.29",
       "uWebSockets.js": "uNetworking/uWebSockets.js#v19.3.0",

@@ -1,3 +1,1 @@
-import SkriberServer from "./server";
-
-export default SkriberServer;
+export * from './server';

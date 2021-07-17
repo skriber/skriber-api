@@ -303,6 +303,7 @@ describe('Private channels', () => {
             let socket: string = undefined;
 
             const channelName = `${app.uuid}/test/channel/private`;
+            const nonce = generateNonce();
 
             ws.on('message', (data: string) => {
                 const res: IMessage = <IMessage>JSON.parse(data);

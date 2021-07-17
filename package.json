@@ -1,6 +1,6 @@
 {
    "name": "skriber-api",
-   "version": "0.1.2",
+   "version": "0.1.3",
    "description": "Skriber Websocket Server",
    "devDependencies": {
       "@types/bcrypt": "^3.0.0",

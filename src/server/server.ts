@@ -180,7 +180,6 @@ export class SkriberServer {
                         };
                         break;
                 }
-
                 // 2 bytes for each char
                 totalBytesTransmittedMetric.inc(JSON.stringify(result).length * 2);
                 ws.send(JSON.stringify(result));

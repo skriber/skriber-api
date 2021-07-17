@@ -52,7 +52,7 @@ export async function publishEndpoint(res: HttpResponse, req: HttpRequest, app: 
             where: {
                 publicKey
             },
-            relations: ['application']
+            relations: ['application'],
         });
         
         if(!apiKey || apiKey.application.uuid != appId) {
@@ -83,5 +83,6 @@ export async function publishEndpoint(res: HttpResponse, req: HttpRequest, app: 
 
         res.writeStatus("202");
         res.end();
+        return;
     }, console.error);
 }

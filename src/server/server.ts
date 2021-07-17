@@ -129,9 +129,7 @@ export default class SkriberServer {
                         secWebSocketExtensions,
                         context
                     );
-                })
-
-
+                });
             },
             open: (ws: WebSocket) => {
                 ws.uuid = uuid4();
@@ -177,13 +175,21 @@ export default class SkriberServer {
             },
             close: (ws: WebSocket, code: number, message: ArrayBuffer) => {
                 const uuid = ws.uuid;
-                logger.info(`Socket >${uuid}< gracefully disconnected`);
+                logger.info(`Socket >${uuid}< closed connection`);
             }
         }).post('/publish', async (res, req) => {
             res.onAborted(() => {
                 res.aborted = true;
             });
-            await publishEndpoint(res, req, app, connection);
+            try {
+                await publishEndpoint(res, req, app, connection);
+            } catch (e) {
+                res.writeStatus('500');
+                res.end(JSON.stringify({
+                    error: e
+                }));
+                return;
+            }
         }).any('/*', (res, req) => {
             res.writeStatus('200');
             res.end(JSON.stringify({

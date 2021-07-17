@@ -55,7 +55,7 @@ export async function handleSubscribe(message: SubscribeMessage, ws: WebSocket, 
 
         let digest: string = undefined;
         if (channelType === 'private') {
-            digest = createHmac('sha256', apiKey.secretKey).update(`${ws.uuid};${channelName}`).digest('hex');
+            digest = createHmac('sha256', apiKey.secretKey).update(`${ws.id};${channelName}`).digest('hex');
         }
 
         if (digest !== splitSignature[1]) {

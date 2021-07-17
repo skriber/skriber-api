@@ -65,7 +65,7 @@ export async function handleSubscribe(message: SubscribeMessage, ws: WebSocket, 
 
     ws.subscribe(channelName);
 
-    logger.info(`Created new Subscription for Socket >${ws.uuid}< for channel "${channelName}"`);
+    logger.info(`Created new Subscription for Socket >${ws.id}< for channel "${channelName}"`);
 
     return <SubscriptionSuccessMessage>{
         type: "subscription_success",

@@ -1,6 +1,6 @@
 import { config } from "dotenv";
 config();
-import SkriberServer from "./../../src/server";
+import {SkriberServer} from "./../../src/server";
 import WebSocket = require("ws");
 import {calculateSignature, cleanupDatabase, createApplication, generateNonce, preauthSocket, publish} from "../utils";
 import Database from "../../src/db";
@@ -30,7 +30,7 @@ beforeAll(done => {
         apiKey = key;
         server = new SkriberServer(0);
         await server.start(connection, () => {
-            port = server.getPort();
+            port = server.port;
             connectionUrl = `ws://localhost:${port}?appId=${app.uuid}&publicKey=${apiKey.publicKey}`;
             done();
         });

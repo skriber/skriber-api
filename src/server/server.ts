@@ -25,7 +25,7 @@ import {publishEndpoint} from "../endpoints";
 import {handlePing, handleSubscribe, handleUnsubscribe} from "../handlers";
 import isUUID = validator.isUUID;
 import {parseQueryString} from "../utils";
-import {Application, InstanceInfo} from "../entities";
+import {ApiKey, Application, InstanceInfo, User} from "../entities";
 import {subscriber} from "../redis";
 import {nanoid} from "nanoid";
 import {
@@ -63,6 +63,33 @@ export class SkriberServer {
             instanceInfo.maxPayloadSize = 2000000;
             await connection.getRepository(InstanceInfo).save(instanceInfo);
             logger.info("Instance information updated");
+
+            logger.info("Generating default admin and application..");
+
+            const user = await connection.getRepository(User).save({
+                username: "admin",
+                firstName: "Admin",
+                lastName: "User",
+                email: "skriber@localhost",
+                passwordHash: "test"
+            });
+
+            const application = await connection.getRepository(Application).save({
+                appName: "Test",
+                user: user
+            });
+
+            let keys = new ApiKey();
+            keys.regenerate();
+            keys.application = application;
+
+            keys = await connection.getRepository(ApiKey).save(keys);
+
+            logger.info(`Default user ${user.username} created`);
+            logger.info(`Testing application created with id: ${application.uuid}`);
+            logger.info(`Created api keys for testing application:`);
+            logger.info(`publicKey: ${keys.publicKey}`);
+            logger.info(`secretKey: ${keys.secretKey}`);
         }
 
         const app: TemplatedApp = App().ws('/*', {
